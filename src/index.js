@@ -29,8 +29,11 @@ function setup() {
     logger.info(`App listening on port ${port}`)
   })
 
-  app.use("/business", business);
+  // Store the database reference in express, so it can be accessed using
+  // req.app.get("db")
+  app.set("db", database);
 
+  app.use("/business", business);
 }
 
 function checkEnv() {
