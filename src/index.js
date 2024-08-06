@@ -1,8 +1,10 @@
 const express = require('express')
 const logger = require("./logging/logging.js");
 const connectDatabase = require("./db/connection.js");
-
 require('dotenv').config()
+
+// Import express routers.
+const business = require("./routing/business.js");
 
 /*
   Main entry point to the backend. Checks that the appropriate environment variables are set, and that a connection to the database can be established.
@@ -27,21 +29,8 @@ function setup() {
     logger.info(`App listening on port ${port}`)
   })
 
-  app.get("/dummydata", (req, res) => {
-      const data = {
-          "store_id": 1,
-          "store_name": "Guzman y Gomez",
-          "store_address": "21 Chancellors Walk, Clayton VIC 3800",
-          "contact_info": "0399881409",
-          "business_id": 1,
-          "store_categories": [
-              "Mexican",
-              "Fast Food",
-          ]
-      }
+  app.use("/business", business);
 
-      res.json(data)
-  })
 }
 
 function checkEnv() {
