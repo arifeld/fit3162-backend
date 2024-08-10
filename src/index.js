@@ -1,10 +1,11 @@
 const express = require('express')
 const logger = require("./logging/logging.js");
 const connectDatabase = require("./db/connection.js");
-require('dotenv').config()
+require('dotenv').config();
 
 // Import express routers.
 const business = require("./routing/business.js");
+const users = require('./routing/user.js');
 
 /*
   Main entry point to the backend. Checks that the appropriate environment variables are set, and that a connection to the database can be established.
@@ -21,6 +22,10 @@ function setup() {
   const app = express()
   const port = 4000
 
+    
+    app.use(express.json()); 
+    app.use(express.urlencoded({ extended: true }));
+
   app.get('/', (req, res) => {
     res.send('Hello World!')
   })
@@ -33,11 +38,19 @@ function setup() {
   // req.app.get("db")
   app.set("db", database);
 
+  app.post('/test', (req, res) => {
+    res.send('Hello world');
+  } )
+
   app.use("/business", business);
+  app.use('/users', users);
+
+  
+
 }
 
 function checkEnv() {
-  const EXPECTED_ENV_VARIABLES = [process.env.MYSQL_HOST, process.env.MYSQL_USER, process.env.MYSQL_PASS, process.env.MYSQL_DB]
+  const EXPECTED_ENV_VARIABLES = [process.env.MYSQL_HOST, process.env.MYSQL_USER, process.env.MYSQL_PASS, process.env.MYSQL_DB];
   for (let i in EXPECTED_ENV_VARIABLES) { if (EXPECTED_ENV_VARIABLES[i] == undefined) throw new Error(`Environment variables are not configured correctly. Check the .env.template file.`); }
 }
 
