@@ -4,7 +4,7 @@ const connectDatabase = require("./db/connection.js");
 require('dotenv').config();
 
 // Import express routers.
-const business = require("./routing/business.js");
+const category = require("./routing/category.js");
 const users = require('./routing/user.js');
 
 /*
@@ -38,11 +38,7 @@ function setup() {
   // req.app.get("db")
   app.set("db", database);
 
-  app.post('/test', (req, res) => {
-    res.send('Hello world');
-  } )
-
-  app.use("/business", business);
+  app.use("/category", category);
   app.use('/users', users);
 
   
