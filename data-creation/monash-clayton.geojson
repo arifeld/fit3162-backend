@@ -1,0 +1,681 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2024-08-13T04:13:59Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/592653412",
+        "addr:housenumber": "15",
+        "addr:street": "Innovation Walk",
+        "amenity": "cafe",
+        "cuisine": "italian",
+        "email": "cinqueliremonash@yahoo.com.au",
+        "name": "Cinque Lire Café",
+        "opening_hours": "Mo-Th 06:30-17:00; Fr 06:30-18:30",
+        "opening_hours:url": "https://www.monash.edu/food-and-retail/vendors/cinque-lire-cafe",
+        "outdoor_seating": "yes",
+        "phone": "+61 3 9540 0778",
+        "website": "https://www.monash.edu/food-and-retail/vendors/cinque-lire-cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1294505,
+          -37.9103098
+        ]
+      },
+      "id": "node/592653412"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/605209413",
+        "amenity": "cafe",
+        "name": "Kafe Mument"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1420044,
+          -37.9101277
+        ]
+      },
+      "id": "node/605209413"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/611532052",
+        "amenity": "fast_food",
+        "name": "The Lunch-In",
+        "source": "local_knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1446645,
+          -37.9144832
+        ]
+      },
+      "id": "node/611532052"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/621555886",
+        "amenity": "cafe",
+        "name": "Meeting Point"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1328475,
+          -37.9117181
+        ]
+      },
+      "id": "node/621555886"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/621555888",
+        "amenity": "fast_food",
+        "description": "Fish and Chips",
+        "name": "Neptune's Seafood Catch"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1328193,
+          -37.9120496
+        ]
+      },
+      "id": "node/621555888"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1305390690",
+        "amenity": "cafe",
+        "name": "Artichoke & Whitebait"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.132831,
+          -37.912
+        ]
+      },
+      "id": "node/1305390690"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2939983803",
+        "amenity": "cafe",
+        "internet_access": "wlan",
+        "name": "Saporo",
+        "smoking": "no",
+        "source": "Survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.132316,
+          -37.9078492
+        ]
+      },
+      "id": "node/2939983803"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4036133494",
+        "amenity": "cafe",
+        "name": "Church of Secular Coffee",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1343708,
+          -37.9114315
+        ]
+      },
+      "id": "node/4036133494"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4167392068",
+        "amenity": "cafe",
+        "contact:instagram": "https://www.instagram.com/monash_wholefoods/",
+        "contact:website": "https://www.monashwholefoods.org/",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "only",
+        "drink:coffee": "yes",
+        "drink:tea": "yes",
+        "layer": "1",
+        "name": "Wholefoods",
+        "opening_hours": "Mo-Fr 09:00-16:00",
+        "reservation": "yes",
+        "source": "local_knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1332784,
+          -37.9117544
+        ]
+      },
+      "id": "node/4167392068"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4167392070",
+        "amenity": "cafe",
+        "name": "The Den",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.132986,
+          -37.9114265
+        ]
+      },
+      "id": "node/4167392070"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4167392071",
+        "amenity": "cafe",
+        "name": "Taste Baguette",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1326293,
+          -37.9127172
+        ]
+      },
+      "id": "node/4167392071"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4334869021",
+        "amenity": "cafe",
+        "name": "Grafali's Coffee Roasters",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.133102,
+          -37.911816
+        ]
+      },
+      "id": "node/4334869021"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4334869022",
+        "amenity": "fast_food",
+        "brand": "Subway",
+        "brand:wikidata": "Q244457",
+        "brand:wikipedia": "en:Subway (restaurant)",
+        "cuisine": "sandwich",
+        "level": "0",
+        "name": "Subway",
+        "source": "survey",
+        "takeaway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1333783,
+          -37.9117292
+        ]
+      },
+      "id": "node/4334869022"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4334869024",
+        "amenity": "fast_food",
+        "cuisine": "malaysian",
+        "level": "0",
+        "name": "PappaRich",
+        "source": "survey",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1335416,
+          -37.9117654
+        ]
+      },
+      "id": "node/4334869024"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4334869025",
+        "amenity": "fast_food",
+        "brand": "Guzman y Gomez",
+        "brand:wikidata": "Q23019759",
+        "brand:wikipedia": "en:Guzman y Gomez",
+        "cuisine": "mexican",
+        "level": "0",
+        "name": "Guzman y Gomez",
+        "outdoor_seating": "yes",
+        "smoking": "no",
+        "source": "survey",
+        "takeaway": "yes",
+        "website": "https://www.guzmanygomez.com/locations/monash-university/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1337589,
+          -37.9118161
+        ]
+      },
+      "id": "node/4334869025"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4334869026",
+        "amenity": "fast_food",
+        "name": "Noodle Noodle",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1331554,
+          -37.9116743
+        ]
+      },
+      "id": "node/4334869026"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4334869029",
+        "amenity": "fast_food",
+        "cuisine": "japanese",
+        "name": "Sushi Sushi",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1331286,
+          -37.9117485
+        ]
+      },
+      "id": "node/4334869029"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4465663649",
+        "amenity": "fast_food",
+        "name": "Joe's Pizzeria",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1357287,
+          -37.9116307
+        ]
+      },
+      "id": "node/4465663649"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4465663650",
+        "addr:city": "Monash University",
+        "addr:housenumber": "28",
+        "addr:postcode": "3800",
+        "addr:street": "Sports Walk",
+        "addr:unit": "1",
+        "amenity": "fast_food",
+        "brand": "Schnitz",
+        "brand:wikidata": "Q48792277",
+        "brand:wikipedia": "en:Schnitz",
+        "cuisine": "chicken",
+        "name": "Schnitz",
+        "source": "survey",
+        "takeaway": "yes",
+        "website": "https://schnitz.com.au/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1355063,
+          -37.9115619
+        ]
+      },
+      "id": "node/4465663650"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4493706888",
+        "amenity": "fast_food",
+        "cuisine": "kebab",
+        "name": "Rambo's Kebabs",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1394059,
+          -37.9164674
+        ]
+      },
+      "id": "node/4493706888"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4493707489",
+        "amenity": "cafe",
+        "name": "Maryam's Cafe",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1392892,
+          -37.9171433
+        ]
+      },
+      "id": "node/4493707489"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4663069996",
+        "amenity": "cafe",
+        "brand": "Boost Juice",
+        "brand:wikidata": "Q4943789",
+        "brand:wikipedia": "en:Boost Juice",
+        "cuisine": "juice",
+        "level": "0",
+        "name": "Boost Juice",
+        "source": "survey",
+        "takeaway": "yes",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1331962,
+          -37.911517
+        ]
+      },
+      "id": "node/4663069996"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4663069997",
+        "amenity": "fast_food",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Pokéd",
+        "outdoor_seating": "yes",
+        "source": "survey",
+        "website": "https://www.monash.edu/eat-drink-shop/vendors/supernatural",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1332259,
+          -37.9114486
+        ]
+      },
+      "id": "node/4663069997"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4969537761",
+        "amenity": "fast_food",
+        "brand": "Roll'd",
+        "brand:wikidata": "Q113114631",
+        "cuisine": "vietnamese",
+        "level": "0",
+        "name": "Roll'd",
+        "opening_hours": "Mo-Fr 09:00-20:30; Sa-Su 10:00-15:00; PH unknown",
+        "source": "survey",
+        "takeaway": "yes",
+        "website": "https://rolld.com.au/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1334584,
+          -37.9117453
+        ]
+      },
+      "id": "node/4969537761"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5189668643",
+        "amenity": "cafe",
+        "name": "Swift's Café",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1340817,
+          -37.9128232
+        ]
+      },
+      "id": "node/5189668643"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5413453837",
+        "amenity": "restaurant",
+        "name": "Ma-Long Kitchen",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1322052,
+          -37.909836
+        ]
+      },
+      "id": "node/5413453837"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5413453838",
+        "amenity": "cafe",
+        "name": "Secret Garden Eatery",
+        "source": "survey",
+        "website": "http://secretgardeneatery.com.au/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1323381,
+          -37.9098385
+        ]
+      },
+      "id": "node/5413453838"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5563387323",
+        "amenity": "cafe",
+        "name": "Mr. Providore",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1321329,
+          -37.9139404
+        ]
+      },
+      "id": "node/5563387323"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5680708784",
+        "amenity": "cafe",
+        "layer": "2",
+        "name": "Cafelito",
+        "source": "survey",
+        "website": "https://www.monash.edu/food-and-retail/vendors/cafelito"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.132763,
+          -37.9136303
+        ]
+      },
+      "id": "node/5680708784"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5680708786",
+        "amenity": "cafe",
+        "layer": "1",
+        "name": "Little Big Shot 1",
+        "source": "survey",
+        "website": "https://www.monash.edu/food-and-retail/vendors/little-big-shot"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1327632,
+          -37.9136305
+        ]
+      },
+      "id": "node/5680708786"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5680708787",
+        "amenity": "fast_food",
+        "name": "Noodle Plus",
+        "source": "survey",
+        "website": "https://www.monash.edu/food-and-retail/vendors/noodle-plus"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1328113,
+          -37.9140428
+        ]
+      },
+      "id": "node/5680708787"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5680708788",
+        "amenity": "cafe",
+        "name": "Nesso Café",
+        "source": "survey",
+        "website": "http://www.cafenesso.com.au/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1328837,
+          -37.9138418
+        ]
+      },
+      "id": "node/5680708788"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5680708789",
+        "amenity": "cafe",
+        "layer": "3",
+        "name": "Little Big Shot 3",
+        "source": "survey",
+        "website": "https://www.monash.edu/food-and-retail/vendors/little-big-shot-3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1327632,
+          -37.9136303
+        ]
+      },
+      "id": "node/5680708789"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6544786405",
+        "amenity": "cafe",
+        "name": "Script @ Jazz Club",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1336302,
+          -37.9131416
+        ]
+      },
+      "id": "node/6544786405"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11672185087",
+        "amenity": "cafe",
+        "name": "Sunny Lane"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.1395759,
+          -37.9124679
+        ]
+      },
+      "id": "node/11672185087"
+    }
+  ]
+}
