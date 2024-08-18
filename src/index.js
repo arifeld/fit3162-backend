@@ -6,6 +6,7 @@ require('dotenv').config();
 // Import express routers.
 const category = require("./routing/category.js");
 const users = require('./routing/user.js');
+const store = require("./routing/store.js");
 
 /*
   Main entry point to the backend. Checks that the appropriate environment variables are set, and that a connection to the database can be established.
@@ -22,9 +23,8 @@ function setup() {
   const app = express()
   const port = 4000
 
-    
-    app.use(express.json()); 
-    app.use(express.urlencoded({ extended: true }));
+  app.use(express.json()); 
+  app.use(express.urlencoded({ extended: true }));
 
   app.get('/', (req, res) => {
     res.send('Hello World!')
@@ -40,6 +40,7 @@ function setup() {
 
   app.use("/category", category);
   app.use('/users', users);
+  app.use("/store", store)
 
   
 
