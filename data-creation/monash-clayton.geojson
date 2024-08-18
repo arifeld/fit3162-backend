@@ -67,7 +67,7 @@
       "properties": {
         "@id": "node/621555886",
         "amenity": "cafe",
-        "name": "Meeting Point"
+        "name": "Monash Meeting Point"
       },
       "geometry": {
         "type": "Point",
@@ -504,7 +504,7 @@
       "properties": {
         "@id": "node/5413453837",
         "amenity": "restaurant",
-        "name": "Ma-Long Kitchen",
+        "name": "Ma Long Kitchen and Dumplings",
         "source": "survey"
       },
       "geometry": {
@@ -649,7 +649,7 @@
       "properties": {
         "@id": "node/6544786405",
         "amenity": "cafe",
-        "name": "Script @ Jazz Club",
+        "name": "The Count's",
         "source": "survey"
       },
       "geometry": {
