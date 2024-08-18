@@ -1,0 +1,545 @@
+[
+    {
+        "store_name": "Artichoke & Whitebait",
+        "store_description": "Artichoke and Whitebait offers a wide selection of gourmet sandwiches, wraps and hot dishes, alongside Sensory Lab Coffee and a variety of beer and wine.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.132831,
+            "y": -37.912
+        },
+        "store_contact_phone": "0395432523",
+        "store_contact_email": null,
+        "store_contact_website": "artichokeandwhitebait.com.au",
+        "categories": [
+            "Cafe"
+        ]
+    },
+    {
+        "store_name": "Cafelito",
+        "store_description": "Cafelito caf\u00e9 provides culturally inspired and daily updated menu for all Monash students and staff. Come and try the perfectly brewed coffee and a large range of brunch menu and fancy cakes.",
+        "store_address_street": "20 Research Way",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.132763,
+            "y": -37.9136303
+        },
+        "store_contact_phone": "0395807347",
+        "store_contact_email": null,
+        "store_contact_website": "https://www.monash.edu/food-and-retail/vendors/cafelito",
+        "categories": [
+            "Cafe"
+        ]
+    },
+    {
+        "store_name": "Boost Juice",
+        "store_description": "Boost offers a range of healthy smoothies and freshly squeezed juices made to order, with a variety of dairy-free and gluten-free options.",
+        "store_address_street": "Floor G Monash University Clayton Campus",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1331962,
+            "y": -37.911517
+        },
+        "store_contact_phone": null,
+        "store_contact_email": null,
+        "store_contact_website": "boostjuice.com.au",
+        "categories": [
+            "Juice",
+            "Wheelchair Accessible",
+            "Takeaway"
+        ]
+    },
+    {
+        "store_name": "Cinque Lire Caf\u00e9",
+        "store_description": "Caf\u00e9 Cinque Lire is a licensed cafe/restaurant, providing coffees, drinks, food and wine with an Italian-inspired menu.",
+        "store_address_street": "15 Innovation Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1294505,
+            "y": -37.9103098
+        },
+        "store_contact_phone": "0395400778",
+        "store_contact_email": "cinqueliremonash@yahoo.com.au",
+        "store_contact_website": "https://www.monash.edu/food-and-retail/vendors/cinque-lire-cafe",
+        "categories": [
+            "Cafe",
+            "Italian",
+            "Outdoor Seating Available"
+        ]
+    },
+    {
+        "store_name": "Church of Secular Coffee",
+        "store_description": "The Church of Secular Coffee is renowned for bringing the quintessential Melbourne brunch experience to Clayton.",
+        "store_address_street": "32 Exhibition Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1343708,
+            "y": -37.9114315
+        },
+        "store_contact_phone": "0399050886",
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Cafe"
+        ]
+    },
+    {
+        "store_name": "The Count's",
+        "store_description": "The Count's offers a sophisticated bistro and superb bar for the Monash community.",
+        "store_address_street": "48 Exhibition Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1336302,
+            "y": -37.9131416
+        },
+        "store_contact_phone": "0390686150",
+        "store_contact_email": null,
+        "store_contact_website": "scriptatthecounts.com.au",
+        "categories": [
+            "Cafe",
+            "Accepts Reservations"
+        ]
+    },
+    {
+        "store_name": "Grafali's Coffee Roasters",
+        "store_description": "Grafalis Cafe provides quality coffee and a range of deli-style toasted sandwiches, salads, wraps, rice-paper rolls and pastries.",
+        "store_address_street": "Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.133102,
+            "y": -37.911816
+        },
+        "store_contact_phone": "0406278975",
+        "store_contact_email": "grafalismonash@gmail.com",
+        "store_contact_website": null,
+        "categories": [
+            "Cafe"
+        ]
+    },
+    {
+        "store_name": "Guzman y Gomez",
+        "store_description": "Tell your tastebuds their siesta is over! We dish up the time-honoured flavours of Mexico with the freshest Australian ingredients.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1337589,
+            "y": -37.9118161
+        },
+        "store_contact_phone": "0399881409",
+        "store_contact_email": null,
+        "store_contact_website": "https://www.guzmanygomez.com/locations/monash-university/",
+        "categories": [
+            "Fast Food",
+            "Mexican",
+            "Wheelchair Accessible",
+            "Outdoor Seating Available",
+            "Takeaway"
+        ]
+    },
+    {
+        "store_name": "Halls Caf\u00e9",
+        "store_description": "Halls Cafe is open to all staff and students for lunch and dinner",
+        "store_address_street": "58 College Way",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1411061550384, 
+            "y": -37.907592841911345
+        },
+        "store_contact_phone": "0399056498",
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Cafe"
+        ]
+    },
+    {
+        "store_name": "Joe's Pizzeria",
+        "store_description": "Joe's Pizzeria and Cafe - Italian takeaway and dine-in. Fully licensed, open daily, with full catering menu. We're on UberEats, Menulog and Melbourne Delivery.",
+        "store_address_street": "2/28 Sports Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1357287,
+            "y": -37.9116307
+        },
+        "store_contact_phone": "0395586546",
+        "store_contact_email": null,
+        "store_contact_website": "joesloganhall.com.au",
+        "categories": [
+            "Fast Food",
+            "Pizza"
+        ]
+    },
+    {
+        "store_name": "Ma Long Kitchen and Dumplings",
+        "store_description": "The number one destination for delicious and traditional handmade dumplings, noodle soups, steamed buns and rice dishes.",
+        "store_address_street": "13 College Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1322052,
+            "y": -37.909836
+        },
+        "store_contact_phone": "0395487173",
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Restaurant",
+            "Dumplings"
+        ]
+    },
+    {
+        "store_name": "Monash Club",
+        "store_description": "Monash Club provides a vibrant, social place for staff, graduate researchers, alumni and guests to relax, dine, and work, offering quality food and wine.",
+        "store_address_street": "32 Exhibition Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1344521512579, 
+            "y": -37.91154508066924
+        },
+        "store_contact_phone": "0399050888",
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Restaurant",
+            "Vegan Options"
+        ]
+    },
+    {
+        "store_name": "Monash Meeting Point",
+        "store_description": "Monash Meeting Point offers a range of hot food and sandwiches from a variety of international cuisines, such as Chinese, Thai, Japanese, Indian and Malaysian.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1328475,
+            "y": -37.9117181
+        },
+        "store_contact_phone": "0399055714",
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Cafe",
+            "Takeaway"
+        ]
+    },
+    {
+        "store_name": "Neptune's Seafood Catch",
+        "store_description": "Neptune's specialises in traditional fish and chips, seafood, souvlakis and burgers - prepared fresh daily in 100% cholesterol-free oil.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1328193,
+            "y": -37.9120496
+        },
+        "store_contact_phone": "0424511687",
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Fast Food",
+            "Fish & Chips"
+        ]
+    },
+    {
+        "store_name": "Nesso Caf\u00e9",
+        "store_description": "A boutique cafe delivering quality coffee and delicious snacks. The perfect place for meetings and study breaks.",
+        "store_address_street": "19 Ancora Imparo Way",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1328837,
+            "y": -37.9138418
+        },
+        "store_contact_phone": "0395588457",
+        "store_contact_email": null,
+        "store_contact_website": "http://www.cafenesso.com.au/",
+        "categories": [
+            "Cafe",
+            "Takeaway"
+        ]
+    },
+    {
+        "store_name": "Noodle Noodle",
+        "store_description": "Noodle Noodle provides authentic fresh take-away Asian-style noodle, rice and soup dishes as well as small eats.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1331554,
+            "y": -37.9116743
+        },
+        "store_contact_phone": null,
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Fast Food",
+            "Chinese"
+        ]
+    },
+    {
+        "store_name": "Noodle Plus",
+        "store_description": "Noodle Plus provides authentic, fresh take-away Asian-style noodle, rice and soup dishes, as well as small eats.",
+        "store_address_street": "",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1328113,
+            "y": -37.9140428
+        },
+        "store_contact_phone": null,
+        "store_contact_email": null,
+        "store_contact_website": "https://www.monash.edu/food-and-retail/vendors/noodle-plus",
+        "categories": [
+            "Fast Food",
+            "Asian"
+        ]
+    },
+    {
+        "store_name": "PappaRich",
+        "store_description": "PappaRich provides you with the finest taste of Malaysia. Come and enjoy authentic Malaysian delights to satisfy your tastebuds.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1335416,
+            "y": -37.9117654
+        },
+        "store_contact_phone": null,
+        "store_contact_email": null,
+        "store_contact_website": "https://www.papparich.net.au/store/monash-express",
+        "categories": [
+            "Fast Food",
+            "Malaysian",
+            "Wheelchair Accessible"
+        ]
+    },
+    {
+        "store_name": "Peri Peri",
+        "store_description": "Specialising in Portuguese style, peri-peri marinated chicken. Also offering burgers, souvlaki and more.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.132948720185, 
+            "y": -37.91187790656227
+        },
+        "store_contact_phone": "0399055714",
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Restaurant",
+            "Portuguese"
+        ]
+    },
+    {
+        "store_name": "Pok\u00e9d",
+        "store_description": "Pok\u00e9 (pronounced poh-kay) is one of Hawaii\u2019s national dishes and a centuries-old classic.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1332259,
+            "y": -37.9114486
+        },
+        "store_contact_phone": "0386529122",
+        "store_contact_email": null,
+        "store_contact_website": "http://www.poked.com.au/",
+        "categories": [
+            "Fast Food",
+            "Wheelchair Accessible"
+        ]
+    },
+    {
+        "store_name": "Roll'd",
+        "store_description": "At every Roll'd store, you will experience the very same family essence and Vietnamese-inspired fare we know and love, with a twist for modern Australia.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1334584,
+            "y": -37.9117453
+        },
+        "store_contact_phone": "0395589291",
+        "store_contact_email": null,
+        "store_contact_website": "https://rolld.com.au/",
+        "categories": [
+            "Fast Food",
+            "Vietnamese",
+            "Wheelchair Accessible",
+            "Takeaway"
+        ]
+    },
+    {
+        "store_name": "Sammy's",
+        "store_description": "Sammy\u2019s Cafe offers a large variety of freshly roasted coffee, as well as a wide range of take-away sandwiches and baked goods.",
+        "store_address_street": "42 Scenic Boulevard",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.13650033242632,
+            "y": -37.912824618217584
+        },
+        "store_contact_phone": null,
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Cafe"
+        ]
+    },
+    {
+        "store_name": "Schnitz",
+        "store_description": "Schnitz is committed to creating the best schnitzels in the world and wants to share them with the world.",
+        "store_address_street": "28 Sports Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1355063,
+            "y": -37.9115619
+        },
+        "store_contact_phone": "0395488148",
+        "store_contact_email": null,
+        "store_contact_website": "https://schnitz.com.au/",
+        "categories": [
+            "Fast Food",
+            "Chicken",
+            "Takeaway"
+        ]
+    },
+    {
+        "store_name": "Secret Garden Eatery",
+        "store_description": "Secret Garden Eatery offer a wide selection of delicious gourmet food catered to your individual needs.",
+        "store_address_street": "13 College Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1323381,
+            "y": -37.9098385
+        },
+        "store_contact_phone": "0401786280",
+        "store_contact_email": null,
+        "store_contact_website": "http://secretgardeneatery.com.au/",
+        "categories": [
+            "Cafe"
+        ]
+    },
+    {
+        "store_name": "Sharetea",
+        "store_description": "Share the tea, share the fun!",
+        "store_address_street": "32 Exhibition Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.13453712119002,
+            "y": -37.91153928895683
+        },
+        "store_contact_phone": "0385123061",
+        "store_contact_email": null,
+        "store_contact_website": "https://sharetea.com.au/",
+        "categories": [
+            "Bubble Tea"
+        ]
+    },
+    {
+        "store_name": "Sir John's",
+        "store_description": "Fully licensed bar offering a wide range of drinks (including tap beer), and pub-style food such as burgers and wedges. Great for your next function.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.13323360619881,
+            "y": -37.911994935560486
+        },
+        "store_contact_phone": "0399052883",
+        "store_contact_email": null,
+        "store_contact_website": "https://sirjohnsbar.com/menu/",
+        "categories": [
+            "Bar"
+        ]
+    },
+    {
+        "store_name": "Subway",
+        "store_description": "Subway is a fast food restaurant franchise that primarily offers healthy submarine sandwiches and salads.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1333783,
+            "y": -37.9117292
+        },
+        "store_contact_phone": null,
+        "store_contact_email": null,
+        "store_contact_website": "http://www.subway.com/en-au",
+        "categories": [
+            "Fast Food",
+            "Sandwich",
+            "Wheelchair Accessible",
+            "Takeaway"
+        ]
+    },
+    {
+        "store_name": "Sushi Sushi",
+        "store_description": "At Sushi Sushi we see the creation of fresh, healthy sushi as way more than a job; it's an obsession.",
+        "store_address_street": "21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1331286,
+            "y": -37.9117485
+        },
+        "store_contact_phone": "0395432629",
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Fast Food",
+            "Japanese"
+        ]
+    },
+    {
+        "store_name": "Swift's Caf\u00e9",
+        "store_description": "Swift\u2019s Caf\u00e9 at the Louis Matheson Library is the ideal place for a true Melbourne coffee!",
+        "store_address_street": "40 Exhibition Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1340817,
+            "y": -37.9128232
+        },
+        "store_contact_phone": "0399052886",
+        "store_contact_email": null,
+        "store_contact_website": null,
+        "categories": [
+            "Cafe"
+        ]
+    },
+    {
+        "store_name": "Wholefoods",
+        "store_description": "Vegetarian and vegan food, including lasagne, curry, soup, stir-fry and dessert. Groceries also sold.",
+        "store_address_street": "Level 1 / 21 Chancellors Walk",
+        "store_address_suburb": "Clayton",
+        "store_address_postcode": 3168,
+        "store_geopoint": {
+            "x": 145.1332784,
+            "y": -37.9117544
+        },
+        "store_contact_phone": null,
+        "store_contact_email": null,
+        "store_contact_website": "http://monashwholefoods.org/",
+        "categories": [
+            "Cafe",
+            "Accepts Reservations",
+            "Vegetarian Options",
+            "Vegan Options"
+        ]
+    }
+]

@@ -1,7 +1,7 @@
 const logger = require("./../logging/logging");
 const mysql = require('mysql2')
 
-
+const fs = require("fs");
 
 const connectDatabase = function() {
     logger.info("Attempting to connect to database.");
@@ -48,6 +48,11 @@ const connectDatabase = function() {
           }
       
           logger.info(`Successfully connected to ${process.env.MYSQL_DB} table.`);
+
+          // Check if we should import data from the bootstrap file
+          if (process.argv[2] == "import-data") {
+            bootstrapData(database);
+          }
         })
       })
 
@@ -55,6 +60,71 @@ const connectDatabase = function() {
 
 }
 
+const bootstrapData = function(db) {
+  console.log("Running data bootstrap script.")
+  const data = JSON.parse(fs.readFileSync("src/bootstrap/clayton-output.json"));
+  
+  // Need to first generate a set of all categories so we don't throw errors due to async executes
+  const categorySet = new Set();
+
+  for (const store of data) {
+    for (const category of store["categories"]) {
+      categorySet.add(category);  
+    }
+  }
+
+  for (const category of categorySet) {
+    db.execute(`INSERT INTO category (category_name) VALUES (?)`, [category], (err, res) => {
+      if (err) { logger.error(err); return; }
+      logger.info(`Created new category=${category} with id=${res.insertId}`);
+    })
+  }
+
+  for (const store of data) {
+    // Import the initial store data
+    db.execute(`
+      INSERT INTO store (store_name, store_description, store_address_street, store_address_suburb, store_address_postcode, store_geopoint, store_contact_phone, store_contact_email, store_contact_website) 
+      VALUES 
+      (?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?);
+    `, 
+      [
+        store.store_name,
+        store.store_description,
+        store.store_address_street,
+        store.store_address_suburb,
+        store.store_address_postcode,
+        store.store_geopoint['x'],
+        store.store_geopoint['y'],
+        store.store_contact_phone,
+        store.store_contact_email,
+        store.store_contact_website
+      ], (err, res_store_insert) => {
+        if (err) { logger.error(err); return; }
+
+        // For each category, see if the category already exists in the database.
+        // If not, create the entity first
+        for (const category of store["categories"]) {
+          db.execute(`SELECT category_id FROM category WHERE category_name=?`, [category], (err, res_select) => {
+            if (err) { logger.error(err); return; }
+            if (res_select.length == 0) {
+              logger.error(`Category is missing from database: ${category}`)
+            } else {
+              linkStoreCategory(db, res_store_insert.insertId, res_select[0].category_id)
+            }
+          })
+        }
+
+        logger.info(`Inserted store=${store.store_name} with ID=${res_store_insert.insertId}`);
+      })
+  }
+}
+
+const linkStoreCategory = function(db, store_id, category_id) {
+  db.execute(`INSERT INTO store_category (store_id, category_id) VALUES (?, ?)`, [store_id, category_id], (err, res) => {
+    if (err) { logger.error(err); return;}
+    logger.info(`Created store_category row with store_id=${store_id} and category_id=${category_id}`);
+  })
+}
 
 
-module.exports = connectDatabase;
+module.exports = {connectDatabase, bootstrapData};

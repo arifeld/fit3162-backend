@@ -11,13 +11,10 @@ const getAllStores = function(db, page, limit, callback) {
 
     // Will need to expand this query and sort by distance
     const getAllStoresQuery = `
-        SELECT store_id, store_name FROM store
+        SELECT store_id, store_name, store_description FROM store
         LIMIT ?
         OFFSET ?
     `
-
-    console.log(limit);
-    console.log(offset);
 
     // For some reason execute requires strings, even though these should be numbers.
     db.execute(getAllStoresQuery, [limit.toString(), offset.toString()], (err, rows) => {
@@ -30,7 +27,7 @@ const getAllStores = function(db, page, limit, callback) {
 const getStore = function(db, id, callback) { 
 
     const getStoreQuery = `
-        SELECT store.store_id, store_name, store_address_street, store_address_suburb, store_address_postcode, store_geopoint, contact_phone, contact_email, business_id, JSON_ARRAYAGG(JSON_OBJECT("name", category.category_name, "description", category.category_description)) AS categories 
+        SELECT store.store_id, store_name, store_description, store_address_street, store_address_suburb, store_address_postcode, store_geopoint, store_contact_phone, store_contact_email, store_contact_website, business_id, JSON_ARRAYAGG(JSON_OBJECT("name", category.category_name, "description", category.category_description)) AS categories 
         FROM store
         LEFT JOIN store_category ON store.store_id = store_category.store_id AND store.store_id = ?
         LEFT JOIN category ON store_category.category_id = category.category_id

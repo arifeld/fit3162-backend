@@ -1,6 +1,6 @@
 const express = require('express')
 const logger = require("./logging/logging.js");
-const connectDatabase = require("./db/connection.js");
+const { connectDatabase, bootstrapData } = require("./db/connection.js");
 require('dotenv').config();
 
 // Import express routers.
@@ -41,8 +41,6 @@ function setup() {
   app.use("/category", category);
   app.use('/users', users);
   app.use("/store", store)
-
-  
 
 }
 

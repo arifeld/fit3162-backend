@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const dbConnection = require('../db/connection'); 
 const mysql = require('mysql2');
-const database = dbConnection();
 
 router.get("/", (req, res) => {
     const data = {

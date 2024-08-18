@@ -19,7 +19,7 @@ ALTER TABLE business ADD CONSTRAINT business_uq_name UNIQUE ( business_name );
 CREATE TABLE category (
     category_id          INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     category_name        VARCHAR(50) NOT NULL,
-    category_description VARCHAR(200) NOT NULL
+    category_description VARCHAR(200)
 );
 
 ALTER TABLE category ADD CONSTRAINT category_uq_name UNIQUE ( category_name );
@@ -45,12 +45,14 @@ CREATE TABLE review (
 CREATE TABLE store (
     store_id      INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     store_name    VARCHAR(50) NOT NULL,
-    store_address_street VARCHAR(30) NOT NULL,
+    store_description VARCHAR(500) NOT NULL,
+    store_address_street VARCHAR(50) NOT NULL,
     store_address_suburb VARCHAR(30) NOT NULL,
     store_address_postcode INT(4) NOT NULL,
-    store_geopoint POINT NOT NULL,
-    contact_phone VARCHAR(10) NOT NULL,
-    contact_email VARCHAR(30) NOT NULL,
+    store_geopoint POINT NOT NULL,	
+    store_contact_phone VARCHAR(10),
+    store_contact_email VARCHAR(30),
+    store_contact_website VARCHAR(100),
     business_id   INT
 );
 
