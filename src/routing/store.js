@@ -1,18 +1,26 @@
 const express = require("express");
 const router = express.Router();
 
-const { getStore } = require("../db/store");
+const { getStore, getAllStores } = require("../db/store");
 
 router.get("/", (req, res) => {
-    const data = {
-        "store_id": 1,
-        "store_name": "Guzman y Gomez",
-        "store_address": "21 Chancellors Walk, Clayton VIC 3800",
-        "business_id": 1,
-        "contact_info": "0399881409"
-    };
+    db = req.app.get("db");
 
-    res.json(data);
+    const rawPage = req.query.page ?? "1";
+    const rawLimit = req.query.limit ?? "20";
+
+    const page = parseInt(rawPage);
+    const limit = parseInt(rawLimit);
+
+    if (!Number.isInteger(page) || !Number.isInteger(limit)) { 
+        res.send("Invalid parameters, page and limit must both be omitted or integers");
+        return;
+    }
+
+    getAllStores(db, page, limit, function(rows) {
+        res.json(rows);
+
+    });
 });
 
 router.get('/:id', (req, res) => {

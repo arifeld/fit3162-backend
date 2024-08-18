@@ -1,6 +1,29 @@
 const logger = require("./../logging/logging");
 
-const getAllStores = function(req, page, limit){
+const getAllStores = function(db, page, limit, callback) {
+
+    if (typeof page != "number")  { logger.error(`Provided page value: ${page} is not a number`); return; }
+    if (typeof limit != "number") { logger.error(`Provided limit value: ${limit} is not a number`); return; }
+    
+    const offset = (page-1) * limit;
+
+    if (!Number.isInteger(offset)) { logger.error(`Offset is not an integer: ${offset}`); return; }
+
+    // Will need to expand this query and sort by distance
+    const getAllStoresQuery = `
+        SELECT store_id, store_name FROM store
+        LIMIT ?
+        OFFSET ?
+    `
+
+    console.log(limit);
+    console.log(offset);
+
+    // For some reason execute requires strings, even though these should be numbers.
+    db.execute(getAllStoresQuery, [limit.toString(), offset.toString()], (err, rows) => {
+        if (err) { logger.error(err); return; }
+        if (callback) { callback(rows); }
+    })
 
 }
 
