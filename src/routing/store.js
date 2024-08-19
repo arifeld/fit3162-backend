@@ -19,7 +19,6 @@ router.get("/", (req, res) => {
 
     getAllStores(db, page, limit, function(rows) {
         res.json(rows);
-
     });
 });
 
@@ -32,7 +31,6 @@ router.get('/:id', (req, res) => {
     getStore(db, req.params.id, function(rows) {
         res.json(rows);
     });
-
 });
 
 module.exports = router;

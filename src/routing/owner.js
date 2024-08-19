@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const dbConnection = require('../db/connection'); 
-const mysql = require('mysql2');
-const database = dbConnection();
+const { setOwner } = require("../db/owner");
 
 router.get("/", (req, res) => {
     const data = {
@@ -21,6 +19,18 @@ router.get('/:id', (req, res) => {
         "category_description": "Mexican food"
     };
     res.json(data);
+});
+
+router.post("/", (req, res) => {
+    const {owner_id, owner_email, owner_password} = req.body;
+
+    const db = req.app.get("db");
+
+    setOwner(db, owner_id, owner_email, owner_password, function(result){
+        console.log(res.json(result));
+
+});
+
 });
 
 module.exports = router;

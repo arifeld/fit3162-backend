@@ -5,8 +5,9 @@ require('dotenv').config();
 
 // Import express routers.
 const category = require("./routing/category.js");
-const users = require('./routing/user.js');
+const business = require('./routing/business.js');
 const store = require("./routing/store.js");
+const owner = require("./routing/owner.js");
 
 /*
   Main entry point to the backend. Checks that the appropriate environment variables are set, and that a connection to the database can be established.
@@ -37,10 +38,10 @@ function setup() {
   // Store the database reference in express, so it can be accessed using
   // req.app.get("db")
   app.set("db", database);
-
   app.use("/category", category);
-  app.use('/users', users);
-  app.use("/store", store)
+  app.use("/business", business);
+  app.use("/store", store);
+  app.use("/owner", owner);
 
 }
 

@@ -4,7 +4,6 @@ const dbConnection = require('../db/connection');
 const mysql = require('mysql2');
 
 // constructing endpoints to get the user
-
 router.get('/', (req, res) => {
     const data = {
         "user_id": 1,
@@ -37,7 +36,7 @@ router.post('/', (req, res) => {
             console.error("Error inserting data:", err);
             return res.status(500).json({ error: "Failed to create user" });
         }
-        res.status(201).json({ message: "User created successfully", userId: result.insertId });
+        res.status(201).json({ message: "User created successfully", userId: result.insertId});
     });
 });
 
