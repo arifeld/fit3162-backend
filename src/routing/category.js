@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const dbConnection = require('../db/connection'); 
 const mysql = require('mysql2');
+const database = dbConnection();
 
 router.get("/", (req, res) => {
     const data = {
@@ -31,11 +33,10 @@ router.post("/", (req, res) => {
     database.query(sqlScript, [category_id, category_name, category_description], (err, result) => {
         if(err){
             console.log(err);
-            return res.status(500).send('Fuck');
+            return res.status(500).send('Something wrong with inserting category');
         }
         return res.status(201).send('Entry added to the category');
     });
-     
 
     }
 )

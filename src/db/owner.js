@@ -1,7 +1,14 @@
 const logger = require("./../logging/logging");
+const bcypt = require('bcrypt');
 
 
 const setOwner = function(db, owner_id, owner_email, owner_password, callback){
+
+    bcrypt.hash(owner_password, 10, (error, hashpassword) => {
+        if(error){
+            console.log(error);
+        }
+    })
 
     // we will need to create a query that creates a business:
     const setBusinessScript = `
