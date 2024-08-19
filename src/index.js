@@ -2,6 +2,7 @@ const express = require('express')
 const logger = require("./logging/logging.js");
 const { connectDatabase, bootstrapData } = require("./db/connection.js");
 require('dotenv').config();
+const cors = require('cors');
 
 // Import express routers.
 const category = require("./routing/category.js");
@@ -26,6 +27,7 @@ function setup() {
 
   app.use(express.json()); 
   app.use(express.urlencoded({ extended: true }));
+  app.use(cors());
 
   app.get('/', (req, res) => {
     res.send('Hello World!')
