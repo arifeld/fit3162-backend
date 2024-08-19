@@ -1,5 +1,5 @@
 const logger = require("./../logging/logging");
-const bcypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 
 const setOwner = function(db, owner_id, owner_email, owner_password, callback){
