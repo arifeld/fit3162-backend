@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const dbConnection = require('../db/connection'); 
-const mysql = require('mysql2');
+const { setUser } = require("../db/user");
+
 
 // constructing endpoints to get the user
 router.get('/', (req, res) => {
@@ -27,18 +27,16 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    const { user_email, user_password, user_username } = req.body;
+    const { user_id, user_email, user_password, user_username } = req.body;
 
-    const sqlScript = `INSERT INTO user (user_id, user_email, user_password, user_username) VALUES (?, ?, ?, ?)`;
     
-    database.query(sqlScript, [user_id, user_email, user_password, user_username], (err, result) => {
-        if (err) {
-            console.error("Error inserting data:", err);
-            return res.status(500).json({ error: "Failed to create user" });
-        }
-        res.status(201).json({ message: "User created successfully", userId: result.insertId});
-    });
-});
+    const db = req.app.get("db");
 
+    setUser(db, user_id, user_email, user_password, user_username, function(result){
+        console.log(res.json(result));
+
+    
+});
+});
 
 module.exports = router;

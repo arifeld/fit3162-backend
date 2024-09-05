@@ -37,7 +37,6 @@ router.post("/", (req, res) => {
         }
         return res.status(201).send('Entry added to the category');
     });
-
     }
 )
 

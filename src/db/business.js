@@ -2,7 +2,19 @@ const logger = require("./../logging/logging");
 
 const getBusiness = function(db, business_id, callback){
 
-}
+    const getBusinessScript = `SELECT * FROM BUSINESS
+                                WHERE business_id = ?`;
+    
+    db.execute(getBusinessScript, [business_id], (err, result) => {
+        if (err) { 
+            logger.error(err); 
+            return; 
+        }
+        if (callback) { 
+            callback(result); 
+        }
+    })
+};
 
 const setBusiness = function(db, business_id, business_name, business_contact_email, business_contact_phone, owner_id, callback){
 
@@ -27,4 +39,4 @@ const setBusiness = function(db, business_id, business_name, business_contact_em
     });
 }
 
-module.exports = {setBusiness};
+module.exports = {setBusiness, getBusiness};

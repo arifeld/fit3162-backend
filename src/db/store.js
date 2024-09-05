@@ -39,7 +39,9 @@ const getStore = function(db, id, callback) {
     // The query is also cached thanks to mysql2
     db.execute(getStoreQuery, [id], (err, rows) => {
         if (err) { logger.error(err); return; }
-        if (callback) { callback(rows); }
+        if (callback) { 
+            callback(rows); 
+        }
     })
 
 }

@@ -1,17 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const { setBusiness } = require("../db/business");
+const { getBusiness, setBusiness } = require("../db/business");
 
-router.get("/", (req, res) => {
-    const data = {
-        "store_id": 1,
-        "store_name": "Guzman y Gomez",
-        "store_address": "21 Chancellors Walk, Clayton VIC 3800",
-        "store_categories": [
-            "Mexican",
-            "Fast Food",
-        ]
-    };
+router.get("/:id", (req, res) => {
+    db = req.app.get("db");
+
+    getBusiness(db, req.params.id, function(result)
+    { 
+        console.log(res.json(result));
+    })
 
     res.json(data);
 });

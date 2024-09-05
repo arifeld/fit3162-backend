@@ -9,6 +9,7 @@ const category = require("./routing/category.js");
 const business = require('./routing/business.js');
 const store = require("./routing/store.js");
 const owner = require("./routing/owner.js");
+const user = require("./routing/user.js");
 
 /*
   Main entry point to the backend. Checks that the appropriate environment variables are set, and that a connection to the database can be established.
@@ -44,6 +45,7 @@ function setup() {
   app.use("/business", business);
   app.use("/store", store);
   app.use("/owner", owner);
+  app.use("/user", user);
 
 }
 
