@@ -46,6 +46,22 @@ const getStore = function(db, id, callback) {
 
 }
 
-//const insertStore = 
+const getStoreByStoreName = function(db, store_name, callback) {
+    const getStoreQuery =  `SELECT store.store_id, store_name, store_description, store_address_street, store_address_suburb, store_address_postcode, store_geopoint, store_contact_phone, store_contact_email, store_contact_website, business_id, JSON_ARRAYAGG(JSON_OBJECT("name", category.category_name, "description", category.category_description)) AS categories 
+        FROM store
+        LEFT JOIN store_category ON store.store_id = store_category.store_id
+        LEFT JOIN category ON store_category.category_id = category.category_id
+        WHERE store.store_name LIKE ?
+        GROUP BY store.store_id;
+    `;
 
-module.exports = {getStore, getAllStores}
+    db.execute(getStoreQuery, [store_name], (err, rows) => {
+        if (err) { logger.error(err); return; }
+        if (callback) { 
+            callback(rows); 
+        }
+    })
+}
+
+
+module.exports = {getStore, getAllStores, getStoreByStoreName}
