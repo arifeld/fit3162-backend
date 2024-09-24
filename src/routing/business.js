@@ -23,19 +23,24 @@ router.get("/:id", async (req, res) => {
 
 
 // a query to test updating the database:
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
     // call the db:
-    db = req.app.get("db");
+    const db = req.app.get("db");
 
-    const {business_id, business_name, business_contact_email, business_contact_phone, owner_id} = req.body;
+    const {business_name, business_contact_email, business_contact_phone, owner_id} = req.body;
     // we will call the setBusiness function here:
-    
-    setBusiness(db, business_id, business_name, business_contact_email, business_contact_phone, owner_id, function(result){
-        console.log(res.json(result));
-    });
+    try {
+        const result = await setBusiness(db, business_name, business_contact_email, business_contact_phone, owner_id);
 
+        if (!result) {
+            return res.status(400).json({error: "Failed to create business"});
+        }
 
-    
+        return res.status(201).json({message: "Business successfully created"});
+    }
+    catch (err) {
+        return res.status(500).json({error: "Failed to create business", details: err.message});
+    }
 });
 
 module.exports = router;
