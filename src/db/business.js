@@ -1,22 +1,25 @@
 const logger = require("./../logging/logging");
 
-const getBusiness = function(db, business_id, callback){
+const getBusiness = async function(db, business_id){
 
     const getBusinessScript = `SELECT * FROM BUSINESS
                                 WHERE business_id = ?`;
-    
-    db.execute(getBusinessScript, [business_id], (err, result) => {
-        if (err) { 
-            logger.error(err); 
-            return; 
+
+    try {
+        const [result] = await db.execute(getBusinessScript, [business_id]);
+
+        if (!result || result.length === 0) {
+            return null;
         }
-        if (callback) { 
-            callback(result); 
-        }
-    })
+        return result;
+    }
+    catch (err) {
+        logger.error("Error when getting businesses:", err);
+        throw err;
+    }
 };
 
-const setBusiness = function(db, business_id, business_name, business_contact_email, business_contact_phone, owner_id, callback){
+const setBusiness = async function(db, business_id, business_name, business_contact_email, business_contact_phone, owner_id){
 
     // we will need to create a query that creates a business:
     const setBusinessScript = `
@@ -25,18 +28,14 @@ const setBusiness = function(db, business_id, business_name, business_contact_em
 
     const callback_values = [business_id, business_name, business_contact_email, business_contact_phone, owner_id];
 
-    db.execute(setBusinessScript, callback_values, (err, result) => {
-        if (err) {
-            console.log("Problem with inserting business", err);
-            if (callback) {
-                callback(null);
-            }
-        } else {
-            if (callback) {
-                callback(result);
-            }
-        }
-    });
+    try {
+        const [result] = await db.execute(setBusinessScript, callback_values);
+        return result;
+    }
+    catch (err) {
+        logger.error("Error setting business:", err);
+        throw err;
+    }
 }
 
 module.exports = {setBusiness, getBusiness};

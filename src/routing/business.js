@@ -2,33 +2,25 @@ const express = require("express");
 const router = express.Router();
 const { getBusiness, setBusiness } = require("../db/business");
 
-router.get("/:id", (req, res) => {
-    db = req.app.get("db");
+router.get("/:id", async (req, res) => {
+    const db = req.app.get("db");
+    const business_id = req.params.id;
 
-    getBusiness(db, req.params.id, function(result)
-    { 
-        console.log(res.json(result));
-    })
+    try {
+        const business = await getBusiness(db, business_id);
 
-    res.json(data);
+        if (!business || business.length === 0) {
+            return res.status(404).json({error: "Business not found"});
+        }
+
+        return res.status(200).json(business);
+    }
+    catch (err) {
+        res.status(500).json({error: "Failed to retrieve business with id", details: err.message});
+    }
+
 });
 
-
-router.get("/:id", (req, res) => {
-    const data = {
-        "store_id": req.params.id,
-        "store_name": "Guzman y Gomez",
-        "store_address": "21 Chancellors Walk, Clayton VIC 3800",
-        "contact_info": "0399881409",
-        "business_id": 1,
-        "store_categories": [
-            "Mexican",
-            "Fast Food",
-        ]
-    };
-
-    res.json(data);
-});
 
 // a query to test updating the database:
 router.post("/", (req, res) => {
