@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getBusiness, setBusiness } = require("../db/business");
+const { getBusiness, setBusiness, deleteBusiness } = require("../db/business");
 
 router.get("/:id", async (req, res) => {
     const db = req.app.get("db");
@@ -42,5 +42,24 @@ router.post("/", async (req, res) => {
         return res.status(500).json({error: "Failed to create business", details: err.message});
     }
 });
+
+router.delete("/:id", async (req, res) => {
+    const db = req.app.get("db");
+
+    const business_id = req.params.id;
+
+    try {
+        const result = await deleteBusiness(db, business_id);
+
+        if (!result) {
+            return res.status(400).json({error: "Failed to delete business"});
+        }
+
+        return res.status(200).json({message: "Business successfully deleted"});
+    }
+    catch (err) {
+        return res.status(500).json({error: "Failed to delete business", details: err.message});
+    }
+})
 
 module.exports = router;

@@ -37,4 +37,23 @@ const setBusiness = async function(db, business_name, business_contact_email, bu
     }
 }
 
-module.exports = {setBusiness, getBusiness};
+const deleteBusiness = async function(db, business_id) {
+    const deleteBusinessScript = ` DELETE FROM business WHERE business_id = ?`;
+
+    try {
+        const [result] = await db.promise().execute(deleteBusinessScript, [business_id]);
+
+        if (result.affectedRows === 0) {
+            throw new Error("No business found with given ID");
+        }
+
+        return result;
+    }
+    catch (err) {
+        logger.error("Error deleting business", err);
+        throw err;
+    }
+}
+
+
+module.exports = {setBusiness, getBusiness, deleteBusiness};
