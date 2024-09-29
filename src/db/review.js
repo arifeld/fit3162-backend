@@ -24,7 +24,7 @@ const setReview = function(db, review_date, review_rating ,review_description, u
     const setReviewScript = `INSERT INTO review ( review_date, review_rating ,review_description, user_id, store_id, review_recommended) 
         VALUES (?, ?, ?, ?, ?, ?)`;
 
-    const callback_values = [review_date, review_rating ,review_description, user_id, store_id, recommended];
+    const callback_values = [new Date(), review_rating ,review_description, user_id, store_id, recommended];
 
     db.execute(setReviewScript, callback_values, (err, result) => {
         if (err) {
@@ -60,4 +60,4 @@ const setReview = function(db, review_date, review_rating ,review_description, u
 
 // }
 
-module.exports = {setReview, getReviewbyStore, getAverageReviewForStore};
+module.exports = {setReview, getReviewbyStore};

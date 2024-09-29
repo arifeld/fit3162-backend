@@ -10,7 +10,8 @@ router.post('/', (req, res) => {
     const db = req.app.get("db");
 
     setReview(db, review_date, review_rating, review_description, user_id, store_id, review_recommended, function(results){
-        console.log(res.json(results));
+        console.log("done");
+        res.json(results);
     });
 
 });

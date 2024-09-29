@@ -63,6 +63,10 @@ const connectDatabase = function() {
 const bootstrapData = function(db) {
   console.log("Running data bootstrap script.")
   const data = JSON.parse(fs.readFileSync("src/bootstrap/clayton-output.json"));
+
+
+  // Insert test user
+  db.execute(`INSERT INTO user VALUES (?, ?, ?, ?)`, [1, "test@test.com", "test", "test"]);
   
   // Need to first generate a set of all categories so we don't throw errors due to async executes
   const categorySet = new Set();
@@ -79,6 +83,9 @@ const bootstrapData = function(db) {
       logger.info(`Created new category=${category} with id=${res.insertId}`);
     })
   }
+
+
+
 
   for (const store of data) {
     // Import the initial store data
@@ -118,6 +125,8 @@ const bootstrapData = function(db) {
         logger.info(`Inserted store=${store.store_name} with ID=${res_store_insert.insertId}`);
       })
   }
+
+  db.execute
 }
 
 const linkStoreCategory = function(db, store_id, category_id) {
