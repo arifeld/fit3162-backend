@@ -37,6 +37,7 @@ CREATE TABLE review (
     review_date              DATETIME NOT NULL,
     review_rating            DOUBLE NOT NULL,
     review_description       VARCHAR(300) NOT NULL,
+    review_recommended       BOOL NOT NULL,
     user_id                  INT NOT NULL,
     store_id                 INT NOT NULL,
     review_business_response VARCHAR(300)

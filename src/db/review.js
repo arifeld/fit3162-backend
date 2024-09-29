@@ -18,13 +18,13 @@ const getReviewbyStore = function(db, store_id, callback) {
     });
 };
 
-const setReview = function(db, review_date, review_rating ,review_description, user_id, store_id, review_business_response, callback){
+const setReview = function(db, review_date, review_rating ,review_description, user_id, store_id, recommended, callback){
 
     // we will need to create a query that creates a business:
-    const setReviewScript = `INSERT INTO review ( review_date, review_rating ,review_description, user_id, store_id, review_business_response) 
+    const setReviewScript = `INSERT INTO review ( review_date, review_rating ,review_description, user_id, store_id, review_recommended) 
         VALUES (?, ?, ?, ?, ?, ?)`;
 
-    const callback_values = [review_date, review_rating ,review_description, user_id, store_id, review_business_response];
+    const callback_values = [review_date, review_rating ,review_description, user_id, store_id, recommended];
 
     db.execute(setReviewScript, callback_values, (err, result) => {
         if (err) {
@@ -40,4 +40,24 @@ const setReview = function(db, review_date, review_rating ,review_description, u
     });
 };
 
-module.exports = {setReview, getReviewbyStore};
+/**
+ * Utility method to get average review for store
+ * @param {*} db 
+ * @param {*} store_id 
+ */
+// const getAverageReviewForStore = function(db, store_id) {
+//     const getAllRatingsStatement = `SELECT COUNT(*) AS total_reviews, COUNT(review_rating) AS combined_amount FROM rating WHERE store_id=?`;
+
+//     try {
+//         const [rows, fields] = db.execute(getAllRatingsStatement, [store_id]);
+//         console.log(rows);
+//     } catch (err) {
+//         console.error(err);
+//     }
+
+    
+
+
+// }
+
+module.exports = {setReview, getReviewbyStore, getAverageReviewForStore};
