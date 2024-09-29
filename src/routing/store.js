@@ -18,7 +18,6 @@ router.get("/", (req, res) => {
     }
 
     getAllStores(db, page, limit, function(rows) {
-        // We now need to get 
         res.json(rows);
     });
 });

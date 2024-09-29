@@ -4,6 +4,7 @@ const path = require("path");
 const fs = require("fs");
 
 router.get("/:folder/:filename", (req, res) => {
+    console.log("getting file: ", filename)
     const options = {
         root: path.join(__dirname, "../../public"),
         dotfiles: "deny"
