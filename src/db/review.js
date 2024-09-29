@@ -18,7 +18,7 @@ const getReviewbyStore = function(db, store_id, callback) {
     });
 };
 
-const setReview = function(db, review_date, review_rating ,review_description, user_id, store_id, recommended, callback){
+const setReview = function(db, review_rating ,review_description, user_id, store_id, recommended, callback){
 
     // we will need to create a query that creates a business:
     const setReviewScript = `INSERT INTO review ( review_date, review_rating ,review_description, user_id, store_id, review_recommended) 
