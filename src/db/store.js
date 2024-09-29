@@ -11,7 +11,7 @@ const getAllStores = function(db, page, limit, callback) {
 
     // Will need to expand this query and sort by distance
     const getAllStoresQuery = `
-        SELECT store.store_id, store_name, store_description, store_file_name, SUM(review.review_rating) / COUNT(review.review_id) AS rating 
+        SELECT store.store_id, store_name, store_description, store_file_name, ST_X(store_geopoint) as longitude, ST_Y(store_geopoint) as latitude, SUM(review.review_rating) / COUNT(review.review_id) AS rating 
             FROM store
             LEFT JOIN review on store.store_id = review.store_id
             GROUP BY store.store_id
