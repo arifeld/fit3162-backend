@@ -23,5 +23,8 @@ const addFavourite = function(db, user_id, store_id, callback){
     });
 }
 
+// one endpoint to remove favourite
+
+
 module.exports = { addFavourite };
 

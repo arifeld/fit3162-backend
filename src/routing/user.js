@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { setUser, loginUser } = require("../db/user");
+const { setUser, loginUser, getUserIdFromEmail } = require("../db/user");
 
 
 // constructing endpoints to get the user
@@ -45,6 +45,27 @@ router.post('/', (req, res) => {
             res.status(201).json({ message: 'User created successfully', result });
         } else {
             res.status(500).json({ error: 'Failed to create user' });
+        }
+    });
+});
+
+router.get('/email/:user_email/', (req, res) => {
+    const { user_email } = req.params; // Use req.query instead of req.body
+
+    // Logging the incoming values to ensure they're valid
+    console.log('Request Query:', req.params);
+
+    if (!user_email) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    const db = req.app.get("db");
+
+    getUserIdFromEmail(db, user_email, function(result) {
+        if (result) {
+            res.status(201).json({ message: 'user_id retrieved successfully', result });
+        } else {
+             res.status(500).json({ error: 'Failed to retrieve user id' });
         }
     });
 });
