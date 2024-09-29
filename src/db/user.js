@@ -73,14 +73,14 @@ const loginUser = function(db, user_email, user_password, callback){
                 callback(null);
                 return;
             }
-
-            if(result.length == 0){
-                if(callback){
-                    callback(null);
-                    return;
-                }
-            }
         } 
+
+        if (result.length == 0){
+            if (callback){
+                callback(null);
+                return;
+            }
+        }
 
         const user = result[0];
 
