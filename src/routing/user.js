@@ -27,16 +27,26 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    const { user_id, user_email, user_password, user_username } = req.body;
+    const { user_email, user_password, user_username } = req.body;
 
-    
+    // Logging the incoming values to ensure they're valid
+    console.log('Request Body:', req.body);
+
+    // Check if the necessary fields are present
+    if (!user_email || !user_password || !user_username) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+
     const db = req.app.get("db");
 
-    setUser(db, user_id, user_email, user_password, user_username, function(result){
-        console.log(res.json(result));
-
-    
-});
+    // Call setUser without the user_id, as it's auto-incremented
+    setUser(db, user_email, user_password, user_username, function(result) {
+        if (result) {
+            res.status(201).json({ message: 'User created successfully', result });
+        } else {
+            res.status(500).json({ error: 'Failed to create user' });
+        }
+    });
 });
 
 module.exports = router;
