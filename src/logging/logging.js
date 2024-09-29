@@ -3,6 +3,7 @@
  * Currently logs to console when in non-production environments; this is subject to change.
  */
 
+
 const winston = require('winston');
 
 const logger = winston.createLogger({

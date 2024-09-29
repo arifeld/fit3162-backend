@@ -5,15 +5,14 @@ const {setReview, getReviewbyStore} = require('../db/review');
 
 router.post('/', (req, res) => {
 
-    const {review_date, review_rating, review_description, user_id, store_id, review_business_response} = req.body;
+    const {review_date, review_rating, review_description, user_id, store_id, review_recommended} = req.body;
 
     const db = req.app.get("db");
 
-    setReview(db, review_date, review_rating, review_description, user_id, store_id, review_business_response, function(results){
-            console.log(res.json(results));
-    
+    setReview(db, review_date, review_rating, review_description, user_id, store_id, review_recommended, function(results){
+        console.log("done");
+        res.json(results);
     });
-
 
 });
 
@@ -26,7 +25,6 @@ router.get('/:id', (req, res) => {
     getReviewbyStore(db, req.params.id, function(result) {
         if (result) {
             console.log("Result received from DB:", result); // Log the result
-
             // Send the result back to ThunderClient as JSON
             res.status(200).json(result);
         } else {
