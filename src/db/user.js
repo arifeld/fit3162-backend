@@ -42,4 +42,44 @@ const setUser = function(db, user_email, user_password, user_username, callback)
     });
 };
 
-module.exports = { setUser };
+const loginUser = function(db, user_email, user_password, callback){
+    const getUserScript = `SELECT * FROM USER WHERE user_email = ?`;
+
+    db.execute(getUserScript, [user_email], (err, result) => {
+        if (err) {
+            console.log("Problem with querying user", err);
+            if (callback) {
+                callback(null);
+                return;
+            }
+
+            if(result.length == 0){
+                if(callback){
+                    callback(null);
+                    return;
+                }
+            }
+        } 
+
+        const user = result[0];
+
+        bcrypt.compare(user_password, user.user_password, (err, isMatch) => {
+            if (err) {
+                console.log("Error comparing passwords", err);
+                if (callback) callback(null);
+                return;
+            }
+
+            if (isMatch) {
+                // Passwords match
+                if (callback) callback({ user_id: user.user_id, user_email: user.user_email });
+            } else {
+                // Passwords do not match
+                if (callback) 
+                    callback(null);
+            }
+        });
+    })
+}
+
+module.exports = { setUser, loginUser };

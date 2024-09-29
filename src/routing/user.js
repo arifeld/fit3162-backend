@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { setUser } = require("../db/user");
+const { setUser, loginUser } = require("../db/user");
 
 
 // constructing endpoints to get the user
@@ -48,5 +48,28 @@ router.post('/', (req, res) => {
         }
     });
 });
+
+router.post('/login', (req, res) => {
+    const { user_email, user_password} = req.body;
+
+    // Logging the incoming values to ensure they're valid
+    console.log('Request Body:', req.body);
+
+    // Check if the necessary fields are present
+    if (!user_email || !user_password) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    const db = req.app.get("db");
+
+    // Call setUser without the user_id, as it's auto-incremented
+    loginUser(db, user_email, user_password, function(result) {
+        if (result) {
+            res.status(201).json({ message: 'User signed in successfully', result });
+        } else {
+            res.status(500).json({ error: 'Incorrect User Authentication' });
+        }
+    });
+})
 
 module.exports = router;
