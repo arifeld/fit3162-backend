@@ -83,9 +83,9 @@ const bootstrapData = function(db) {
   for (const store of data) {
     // Import the initial store data
     db.execute(`
-      INSERT INTO store (store_name, store_description, store_address_street, store_address_suburb, store_address_postcode, store_geopoint, store_contact_phone, store_contact_email, store_contact_website) 
+      INSERT INTO store (store_name, store_description, store_address_street, store_address_suburb, store_address_postcode, store_geopoint, store_contact_phone, store_contact_email, store_contact_website, store_file_name) 
       VALUES 
-      (?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?);
+      (?, ?, ?, ?, ?, POINT(?, ?), ?, ?, ?, ?);
     `, 
       [
         store.store_name,
@@ -97,7 +97,8 @@ const bootstrapData = function(db) {
         store.store_geopoint['y'],
         store.store_contact_phone,
         store.store_contact_email,
-        store.store_contact_website
+        store.store_contact_website,
+        store.store_file_name
       ], (err, res_store_insert) => {
         if (err) { logger.error(err); return; }
 

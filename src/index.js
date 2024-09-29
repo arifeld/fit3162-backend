@@ -1,5 +1,6 @@
 const express = require('express')
 const logger = require("./logging/logging.js");
+const expressLogger = require("./logging/expresslogger.js");
 const { connectDatabase, bootstrapData } = require("./db/connection.js");
 require('dotenv').config();
 const cors = require('cors');
@@ -11,7 +12,7 @@ const store = require("./routing/store.js");
 const owner = require("./routing/owner.js");
 const user = require("./routing/user.js");
 const review = require("./routing/review.js");
-
+const images = require("./routing/images.js");
 /*
   Main entry point to the backend. Checks that the appropriate environment variables are set, and that a connection to the database can be established.
   If it appears the database has not yet been configured, it runs the bootstrap code automatically.
@@ -25,7 +26,7 @@ function setup() {
   const database = connectDatabase();
 
   const app = express()
-  const port = 4000
+  const port = 4000 
 
   app.use(express.json()); 
   app.use(express.urlencoded({ extended: true }));
@@ -39,6 +40,8 @@ function setup() {
     logger.info(`App listening on port ${port}`)
   })
 
+  app.use(expressLogger);
+
   // Store the database reference in express, so it can be accessed using
   // req.app.get("db")
   app.set("db", database);
@@ -48,6 +51,9 @@ function setup() {
   app.use("/owner", owner);
   app.use("/user", user);
   app.use("/review", review);
+  app.use("/images", images);
+
+  
 
 }
 

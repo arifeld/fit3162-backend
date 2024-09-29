@@ -11,7 +11,7 @@ const getAllStores = function(db, page, limit, callback) {
 
     // Will need to expand this query and sort by distance
     const getAllStoresQuery = `
-        SELECT store_id, store_name, store_description FROM store
+        SELECT store_id, store_name, store_description, store_file_name FROM store
         LIMIT ?
         OFFSET ?
     `

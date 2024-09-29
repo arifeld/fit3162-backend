@@ -14,7 +14,8 @@
         "store_contact_website": "artichokeandwhitebait.com.au",
         "categories": [
             "Cafe"
-        ]
+        ],
+        "store_file_name": "artichoke&whitebait.jpg"
     },
     {
         "store_name": "Cafelito",
@@ -31,7 +32,8 @@
         "store_contact_website": "https://www.monash.edu/food-and-retail/vendors/cafelito",
         "categories": [
             "Cafe"
-        ]
+        ],
+        "store_file_name": "cafelito.jpg"
     },
     {
         "store_name": "Boost Juice",
@@ -50,7 +52,8 @@
             "Juice",
             "Wheelchair Accessible",
             "Takeaway"
-        ]
+        ],
+        "store_file_name": "boostjuice.jpg"
     },
     {
         "store_name": "Cinque Lire Caf\u00e9",
@@ -69,7 +72,8 @@
             "Cafe",
             "Italian",
             "Outdoor Seating Available"
-        ]
+        ],
+        "store_file_name": "cinquelirecaf\u00e9.jpg"
     },
     {
         "store_name": "Church of Secular Coffee",
@@ -86,7 +90,8 @@
         "store_contact_website": null,
         "categories": [
             "Cafe"
-        ]
+        ],
+        "store_file_name": "churchofsecularcoffee.jpg"
     },
     {
         "store_name": "The Count's",
@@ -104,7 +109,8 @@
         "categories": [
             "Cafe",
             "Accepts Reservations"
-        ]
+        ],
+        "store_file_name": "thecounts.jpg"
     },
     {
         "store_name": "Grafali's Coffee Roasters",
@@ -121,7 +127,8 @@
         "store_contact_website": null,
         "categories": [
             "Cafe"
-        ]
+        ],
+        "store_file_name": "grafaliscoffeeroasters.jpg"
     },
     {
         "store_name": "Guzman y Gomez",
@@ -142,7 +149,8 @@
             "Wheelchair Accessible",
             "Outdoor Seating Available",
             "Takeaway"
-        ]
+        ],
+        "store_file_name": "guzmanygomez.jpg"
     },
     {
         "store_name": "Halls Caf\u00e9",
@@ -151,7 +159,7 @@
         "store_address_suburb": "Clayton",
         "store_address_postcode": 3168,
         "store_geopoint": {
-            "x": 145.1411061550384, 
+            "x": 145.1411061550384,
             "y": -37.907592841911345
         },
         "store_contact_phone": "0399056498",
@@ -159,7 +167,8 @@
         "store_contact_website": null,
         "categories": [
             "Cafe"
-        ]
+        ],
+        "store_file_name": "hallscaf\u00e9.jpg"
     },
     {
         "store_name": "Joe's Pizzeria",
@@ -177,7 +186,8 @@
         "categories": [
             "Fast Food",
             "Pizza"
-        ]
+        ],
+        "store_file_name": "joespizzeria.jpg"
     },
     {
         "store_name": "Ma Long Kitchen and Dumplings",
@@ -195,7 +205,8 @@
         "categories": [
             "Restaurant",
             "Dumplings"
-        ]
+        ],
+        "store_file_name": "malongkitchenanddumplings.jpg"
     },
     {
         "store_name": "Monash Club",
@@ -204,7 +215,7 @@
         "store_address_suburb": "Clayton",
         "store_address_postcode": 3168,
         "store_geopoint": {
-            "x": 145.1344521512579, 
+            "x": 145.1344521512579,
             "y": -37.91154508066924
         },
         "store_contact_phone": "0399050888",
@@ -213,7 +224,8 @@
         "categories": [
             "Restaurant",
             "Vegan Options"
-        ]
+        ],
+        "store_file_name": "monashclub.jpg"
     },
     {
         "store_name": "Monash Meeting Point",
@@ -231,7 +243,8 @@
         "categories": [
             "Cafe",
             "Takeaway"
-        ]
+        ],
+        "store_file_name": "monashmeetingpoint.jpg"
     },
     {
         "store_name": "Neptune's Seafood Catch",
@@ -249,7 +262,8 @@
         "categories": [
             "Fast Food",
             "Fish & Chips"
-        ]
+        ],
+        "store_file_name": "neptunesseafoodcatch.jpg"
     },
     {
         "store_name": "Nesso Caf\u00e9",
@@ -267,7 +281,8 @@
         "categories": [
             "Cafe",
             "Takeaway"
-        ]
+        ],
+        "store_file_name": "nessocaf\u00e9.jpg"
     },
     {
         "store_name": "Noodle Noodle",
@@ -285,7 +300,8 @@
         "categories": [
             "Fast Food",
             "Chinese"
-        ]
+        ],
+        "store_file_name": "noodlenoodle.jpg"
     },
     {
         "store_name": "Noodle Plus",
@@ -303,7 +319,8 @@
         "categories": [
             "Fast Food",
             "Asian"
-        ]
+        ],
+        "store_file_name": "noodleplus.jpg"
     },
     {
         "store_name": "PappaRich",
@@ -322,7 +339,8 @@
             "Fast Food",
             "Malaysian",
             "Wheelchair Accessible"
-        ]
+        ],
+        "store_file_name": "papparich.jpg"
     },
     {
         "store_name": "Peri Peri",
@@ -331,7 +349,7 @@
         "store_address_suburb": "Clayton",
         "store_address_postcode": 3168,
         "store_geopoint": {
-            "x": 145.132948720185, 
+            "x": 145.132948720185,
             "y": -37.91187790656227
         },
         "store_contact_phone": "0399055714",
@@ -340,7 +358,8 @@
         "categories": [
             "Restaurant",
             "Portuguese"
-        ]
+        ],
+        "store_file_name": "periperi.jpg"
     },
     {
         "store_name": "Pok\u00e9d",
@@ -358,7 +377,8 @@
         "categories": [
             "Fast Food",
             "Wheelchair Accessible"
-        ]
+        ],
+        "store_file_name": "pok\u00e9d.jpg"
     },
     {
         "store_name": "Roll'd",
@@ -378,7 +398,8 @@
             "Vietnamese",
             "Wheelchair Accessible",
             "Takeaway"
-        ]
+        ],
+        "store_file_name": "rolld.jpg"
     },
     {
         "store_name": "Sammy's",
@@ -395,7 +416,8 @@
         "store_contact_website": null,
         "categories": [
             "Cafe"
-        ]
+        ],
+        "store_file_name": "sammys.jpg"
     },
     {
         "store_name": "Schnitz",
@@ -414,7 +436,8 @@
             "Fast Food",
             "Chicken",
             "Takeaway"
-        ]
+        ],
+        "store_file_name": "schnitz.jpg"
     },
     {
         "store_name": "Secret Garden Eatery",
@@ -431,7 +454,8 @@
         "store_contact_website": "http://secretgardeneatery.com.au/",
         "categories": [
             "Cafe"
-        ]
+        ],
+        "store_file_name": "secretgardeneatery.jpg"
     },
     {
         "store_name": "Sharetea",
@@ -448,7 +472,8 @@
         "store_contact_website": "https://sharetea.com.au/",
         "categories": [
             "Bubble Tea"
-        ]
+        ],
+        "store_file_name": "sharetea.jpg"
     },
     {
         "store_name": "Sir John's",
@@ -465,7 +490,8 @@
         "store_contact_website": "https://sirjohnsbar.com/menu/",
         "categories": [
             "Bar"
-        ]
+        ],
+        "store_file_name": "sirjohns.jpg"
     },
     {
         "store_name": "Subway",
@@ -485,7 +511,8 @@
             "Sandwich",
             "Wheelchair Accessible",
             "Takeaway"
-        ]
+        ],
+        "store_file_name": "subway.jpg"
     },
     {
         "store_name": "Sushi Sushi",
@@ -503,7 +530,8 @@
         "categories": [
             "Fast Food",
             "Japanese"
-        ]
+        ],
+        "store_file_name": "sushisushi.jpg"
     },
     {
         "store_name": "Swift's Caf\u00e9",
@@ -520,7 +548,8 @@
         "store_contact_website": null,
         "categories": [
             "Cafe"
-        ]
+        ],
+        "store_file_name": "swiftscafe.jpg"
     },
     {
         "store_name": "Wholefoods",
@@ -540,6 +569,7 @@
             "Accepts Reservations",
             "Vegetarian Options",
             "Vegan Options"
-        ]
+        ],
+        "store_file_name": "wholefoods.jpg"
     }
 ]
