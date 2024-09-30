@@ -9,7 +9,7 @@ const getReplyByReview = async function(db, reviewId) {
 
     try {
         const result = await db.promise().execute(getReplyByReviewScript, [reviewId]);
-        if (!result || result.length === 0) {
+        if (!result || result[0].length === 0) {
             return null;
         }
 
