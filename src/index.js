@@ -13,6 +13,7 @@ const owner = require("./routing/owner.js");
 const user = require("./routing/user.js");
 const review = require("./routing/review.js");
 const images = require("./routing/images.js");
+const favourites = require("./routing/user_favourite.js");
 /*
   Main entry point to the backend. Checks that the appropriate environment variables are set, and that a connection to the database can be established.
   If it appears the database has not yet been configured, it runs the bootstrap code automatically.
@@ -31,6 +32,7 @@ function setup() {
   app.use(express.json()); 
   app.use(express.urlencoded({ extended: true }));
   app.use(cors());
+  app.use(expressLogger);
 
   app.get('/', (req, res) => {
     res.send('Hello World!')
@@ -40,7 +42,7 @@ function setup() {
     logger.info(`App listening on port ${port}`)
   })
 
-  app.use(expressLogger);
+
 
   // Store the database reference in express, so it can be accessed using
   // req.app.get("db")
@@ -52,8 +54,7 @@ function setup() {
   app.use("/user", user);
   app.use("/review", review);
   app.use("/images", images);
-
-  
+  app.use("/favourite",favourites);
 
 }
 

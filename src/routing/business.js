@@ -1,49 +1,51 @@
 const express = require("express");
 const router = express.Router();
-const { getBusiness, setBusiness } = require("../db/business");
+const { getBusiness, setBusiness, deleteBusiness } = require("../db/business");
 
 router.get("/:id", (req, res) => {
-    db = req.app.get("db");
+    const db = req.app.get("db");
+    const business_id = req.params.id;
 
-    getBusiness(db, req.params.id, function(result)
-    { 
-        console.log(res.json(result));
-    })
-
-    res.json(data);
+    getBusiness(db, business_id, function(rows) {
+        res.json(rows[0]);
+    });
 });
 
-
-router.get("/:id", (req, res) => {
-    const data = {
-        "store_id": req.params.id,
-        "store_name": "Guzman y Gomez",
-        "store_address": "21 Chancellors Walk, Clayton VIC 3800",
-        "contact_info": "0399881409",
-        "business_id": 1,
-        "store_categories": [
-            "Mexican",
-            "Fast Food",
-        ]
-    };
-
-    res.json(data);
-});
 
 // a query to test updating the database:
 router.post("/", (req, res) => {
     // call the db:
-    db = req.app.get("db");
+    const db = req.app.get("db");
 
-    const {business_id, business_name, business_contact_email, business_contact_phone, owner_id} = req.body;
-    // we will call the setBusiness function here:
-    
-    setBusiness(db, business_id, business_name, business_contact_email, business_contact_phone, owner_id, function(result){
-        console.log(res.json(result));
+    const {business_name, business_contact_email, business_contact_phone, owner_id} = req.body;
+
+    setBusiness(db, business_name, business_contact_email, business_contact_phone, owner_id, (result) => {
+        if (result) {
+            res.status(201).json({message: "Business created successfully."});
+        }
+        else {
+            res.status(500).json({message: "Failed to create business."})
+        }
     });
-
-
     
+});
+
+router.delete("/:id", (req, res) => {
+    const db = req.app.get("db");
+
+    const business_id = req.params.id;
+
+    deleteBusiness(db, business_id, (result) => {
+        if (result) {
+            if (result.affectedRows === 0) {
+                res.status(404).json({message: "Business not found."});
+            }
+            res.status(201).json({message: "Business successfully deleted."});
+        }
+        else {
+            res.status(500).json({message: "Failed to delete business"})
+        }
+    });
 });
 
 module.exports = router;
