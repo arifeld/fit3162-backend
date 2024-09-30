@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {addFavourite, removeFavourite} = require('../db/user_favourites');
+const {addFavourite, removeFavourite, checkFavourite} = require('../db/user_favourites');
 const { remove } = require('winston');
 
 router.post('/', (req, res) => {
@@ -26,5 +26,20 @@ router.post('/remove', (req, res) => {
         res.json(results);
     });
 });
+
+router.get('/:user_id/:store_id', (req, res) => {
+    const { user_id, store_id } = req.params;
+
+    const db = req.app.get("db");
+
+    checkFavourite(db, user_id, store_id, function(results) {
+        if (results && results.length > 0) {
+            res.json({ isFavorite: true });
+        } else {
+            res.json({ isFavorite: false });
+        }
+    });
+});
+
 
 module.exports = router;

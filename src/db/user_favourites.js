@@ -46,6 +46,27 @@ const removeFavourite = function(db, user_id, store_id, callback){
 
 }
 
+const checkFavourite = function(db, user_id, store_id, callback) {
+    const checkFavScript = `
+        SELECT * FROM user_favourite 
+        WHERE user_id = ? AND store_id = ?`;
 
-module.exports = { addFavourite, removeFavourite };
+    const callback_values = [user_id, store_id];
+
+    db.execute(checkFavScript, callback_values, (err, result) => {
+        if (err) {
+            console.log("Problem with checking user_favourite", err);
+            if (callback) {
+                callback(null);
+            }
+        } else {
+            if (callback) {
+                callback(result);
+            }
+        }
+    });
+}
+
+
+module.exports = { addFavourite, removeFavourite, checkFavourite };
 
