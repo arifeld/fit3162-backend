@@ -14,6 +14,7 @@ const user = require("./routing/user.js");
 const review = require("./routing/review.js");
 const images = require("./routing/images.js");
 const favourites = require("./routing/user_favourite.js");
+const replies = require("./routing/reviewReply.js");
 /*
   Main entry point to the backend. Checks that the appropriate environment variables are set, and that a connection to the database can be established.
   If it appears the database has not yet been configured, it runs the bootstrap code automatically.
@@ -55,6 +56,7 @@ function setup() {
   app.use("/review", review);
   app.use("/images", images);
   app.use("/favourite",favourites);
+  app.use("/reply", replies);
 
 }
 
