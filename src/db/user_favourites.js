@@ -68,9 +68,11 @@ const checkFavourite = function(db, user_id, store_id, callback) {
 }
 
 const getFavouriteStores = function(db, user_id, callback){
-    const getFavouriteScript = `SELECT store.* FROM user_favourite
+    const getFavouriteScript = `SELECT store.*, SUM(review.review_rating) / COUNT(review.review_id) AS rating FROM user_favourite
     JOIN store ON user_favourite.store_id = store.store_id
-    WHERE user_favourite.user_id = ?`
+    JOIN review ON user_favourite.store_id = review.store_id
+    WHERE user_favourite.user_id = ?
+    GROUP BY store.store_id`;
 
     const callback_values = [user_id];
 
