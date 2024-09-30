@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {setReview, getReviewbyStore} = require('../db/review');
+const {setReview, getReviewbyStore, addReply} = require('../db/review');
 const path = require("path");
 const fs = require("fs");
 
@@ -36,6 +36,23 @@ router.post('/', upload.none(), (req, res) => {
     });
 
 });
+
+router.post("/reply/:id", (req, res) => {
+    const db = req.app.get("db");
+
+    const review_id = req.params.id;
+    const { business_id, review_description } = req.body;
+
+    addReply(db, review_id, business_id, review_description, function(result) {
+        if (result) {
+            res.json(result);
+        } else {
+            res.status(404).json({message: "Unable to find review"});
+        }
+    })
+
+
+})
 
 router.get('/:id', (req, res) => {
     const db = req.app.get("db");

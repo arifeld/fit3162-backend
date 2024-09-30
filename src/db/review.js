@@ -56,6 +56,26 @@ const setReview = function(db, review_rating, review_description, user_id, store
     });
 };
 
+const addReply = function(db, review_id, business_id, review_description, callback) {
+    const updateReviewScript = `
+    UPDATE review SET review_business_response=?, review_business_response_date=?, business_id=?
+        WHERE review_id=?`
+    
+        db.execute(updateReviewScript, [review_description, new Date(), business_id, review_id], (err, result) => {
+            if (err) {
+                console.log("Problem with adding review reply:", err);
+                if (callback) {
+                    callback(null);
+                    
+                }
+                return;
+            }
+            if (callback) { 
+                callback(result);
+            }
+        })
+}
+
 /**
  * Utility method to get average review for store
  * @param {*} db 

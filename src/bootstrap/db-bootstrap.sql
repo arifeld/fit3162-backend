@@ -33,14 +33,16 @@ CREATE TABLE owner (
 ALTER TABLE owner ADD CONSTRAINT owner_email_uq UNIQUE ( owner_email );
 
 CREATE TABLE review (
-    review_id                INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    review_date              DATETIME NOT NULL,
-    review_rating            DOUBLE NOT NULL,
-    review_description       VARCHAR(300) NOT NULL,
-    review_recommended       BOOL NOT NULL,
-    user_id                  INT NOT NULL,
-    store_id                 INT NOT NULL,
-    review_business_response VARCHAR(300)
+    review_id                     INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    review_date                   DATETIME NOT NULL,
+    review_rating                 DOUBLE NOT NULL,
+    review_description            VARCHAR(300) NOT NULL,
+    review_recommended            BOOL NOT NULL,
+    user_id                       INT NOT NULL,
+    store_id                      INT NOT NULL,
+    review_business_response      VARCHAR(300),
+    review_business_response_date DATETIME,
+    business_id            INT
 );
 
 CREATE TABLE review_image (
@@ -106,6 +108,10 @@ ALTER TABLE review
     ADD CONSTRAINT review_user_fk FOREIGN KEY ( user_id )
         REFERENCES `USER` ( user_id );
 
+ALTER TABLE review
+    ADD CONSTRAINT business_id_fk FOREIGN KEY ( business_id )
+        REFERENCES business (business_id);
+    
 ALTER TABLE store
     ADD CONSTRAINT store_business_fk FOREIGN KEY ( business_id )
         REFERENCES business ( business_id );
