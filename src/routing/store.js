@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getStore, getAllStores, getStoreByStoreName } = require("../db/store");
+const { getStore, getAllStores, getStoresByStoreName } = require("../db/store");
 
 router.get("/", (req, res) => {
     db = req.app.get("db");
@@ -35,12 +35,31 @@ router.get('/id/:id', (req, res) => {
     });
 });
 
+router.get('/name', (req, res) => {
+    db = req.app.get("db");
+
+    getAllStores(db, 1, 100, function(rows) {
+        res.json(rows);
+    });
+    
+})
+
+
 router.get('/name/:name', (req, res) => {
     db = req.app.get("db");
 
-    getStoreByStoreName(db, req.params.name, function(rows){
-        res.json(rows);
-    });
+    if (!req.params.name.trim()) {
+        getAllStores(db, 0, 100, function(rows) {
+            res.json(rows);
+        });
+    } else {
+        getStoresByStoreName(db, req.params.name, function(rows){
+            console.log(rows)
+            res.json(rows);
+        });
+    }
+
+    
 })
 
 module.exports = router;

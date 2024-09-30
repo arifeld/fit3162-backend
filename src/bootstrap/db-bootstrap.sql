@@ -43,6 +43,12 @@ CREATE TABLE review (
     review_business_response VARCHAR(300)
 );
 
+CREATE TABLE review_image (
+    review_image_id     INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    review_id           INT NOT NULL,
+    review_image_filename   VARCHAR(300)
+);
+
 CREATE TABLE store (
     store_id      INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     store_name    VARCHAR(50) NOT NULL,
@@ -115,3 +121,7 @@ ALTER TABLE user_favourite
 ALTER TABLE user_favourite
     ADD CONSTRAINT user_favourite_user_fk FOREIGN KEY ( user_id )
         REFERENCES `USER` ( user_id );
+
+ALTER TABLE review_image
+    ADD CONSTRAINT review_image_review_id_fk FOREIGN KEY ( review_id )
+        REFERENCES review ( review_id );

@@ -4,15 +4,16 @@ const path = require("path");
 const fs = require("fs");
 
 router.get("/:folder/:filename", (req, res) => {
-    console.log("getting file: ", filename)
     const options = {
         root: path.join(__dirname, "../../public"),
         dotfiles: "deny"
     };
 
+    console.log(req.params);
+
     const fileName = req.params.filename;
     const folderName = req.params.folder;
-
+    
     // Check if the file exists
 
     const fileExists = fs.existsSync(path.join(__dirname, "../../public", folderName, fileName));

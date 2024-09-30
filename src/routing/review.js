@@ -1,15 +1,36 @@
 const express = require('express');
 const router = express.Router();
 const {setReview, getReviewbyStore} = require('../db/review');
+const path = require("path");
+const fs = require("fs");
 
+const multer = require("multer");
+const upload = multer({ dest: path.join(__dirname, "../../public/review"), limits: { fieldSize: 25 * 1024 * 1024 } })
 
-router.post('/', (req, res) => {
+const uploadFields = [{name: "image", maxCount: 1}];
 
-    const {review_date, review_rating, review_description, user_id, store_id, review_recommended} = req.body;
+// This is a multipart/form-data request to handle the image 
+router.post('/', upload.none(), (req, res) => {
+
+    console.log(req.body);
+
+    const {review_rating, review_description, user_id, store_id, review_recommended, files} = req.body;
 
     const db = req.app.get("db");
 
-    setReview(db, review_date, review_rating, review_description, user_id, store_id, review_recommended, function(results){
+    // Store all the files
+    const fileNames = [];
+
+    for (const i in files) {
+        const imageData = files[i];
+        const fileName = `${(new Date().getTime()/1000|0)}-${i}.jpeg`;
+        const imagePath = path.join(__dirname, "../../public/review/") + fileName;
+        fs.writeFileSync(imagePath, imageData, { encoding: "base64" });
+
+        fileNames.push(fileName);
+    }
+
+    setReview(db, review_rating, review_description, user_id, store_id, review_recommended, fileNames, function(results){
         console.log("done");
         res.json(results);
     });
@@ -24,7 +45,7 @@ router.get('/:id', (req, res) => {
 
     getReviewbyStore(db, req.params.id, function(result) {
         if (result) {
-            console.log("Result received from DB:", result); // Log the result
+            //console.log("Result received from DB:", result); // Log the result
             // Send the result back to ThunderClient as JSON
             res.status(200).json(result);
         } else {

@@ -11,7 +11,7 @@ const getAllStores = function(db, page, limit, callback) {
 
     // Will need to expand this query and sort by distance
     const getAllStoresQuery = `
-        SELECT store.store_id, store_name, store_description, store_file_name, SUM(review.review_rating) / COUNT(review.review_id) AS rating 
+        SELECT store.store_id, store_name, store_description, store_file_name, ST_X(store_geopoint) as longitude, ST_Y(store_geopoint) as latitude, SUM(review.review_rating) / COUNT(review.review_id) AS rating 
             FROM store
             LEFT JOIN review on store.store_id = review.store_id
             GROUP BY store.store_id
@@ -51,16 +51,17 @@ const getStore = function(db, id, callback) {
 
 }
 
-const getStoreByStoreName = function(db, store_name, callback) {
-    const getStoreQuery =  `SELECT store.store_id, store_name, store_description, store_address_street, store_address_suburb, store_address_postcode, store_geopoint, store_contact_phone, store_contact_email, store_contact_website, business_id, JSON_ARRAYAGG(JSON_OBJECT("name", category.category_name, "description", category.category_description)) AS categories 
-        FROM store
-        LEFT JOIN store_category ON store.store_id = store_category.store_id
-        LEFT JOIN category ON store_category.category_id = category.category_id
-        WHERE store.store_name LIKE ?
-        GROUP BY store.store_id;
+const getStoresByStoreName = function(db, store_name, callback) {
+    const getStoreQuery =  `
+        SELECT store.store_id, store_name, store_description, store_file_name, SUM(review.review_rating) / COUNT(review.review_id) AS rating 
+            FROM store
+            LEFT JOIN review on store.store_id = review.store_id
+            WHERE store.store_name LIKE ?
+            GROUP BY store.store_id;
     `;
 
-    db.execute(getStoreQuery, [store_name], (err, rows) => {
+    
+    db.execute(getStoreQuery, [`%${store_name}%`], (err, rows) => {
         if (err) { logger.error(err); return; }
         if (callback) { 
             callback(rows); 
@@ -71,4 +72,4 @@ const getStoreByStoreName = function(db, store_name, callback) {
 /// commenting here for test commit
 
 
-module.exports = {getStore, getAllStores, getStoreByStoreName}
+module.exports = {getStore, getAllStores, getStoresByStoreName}
