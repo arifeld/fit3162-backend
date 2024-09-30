@@ -71,7 +71,15 @@ const getStoresByStoreName = function(db, store_name, callback) {
 
 /// commenting here for test commit
 const getStoresByBusinessId = function(db, business_id, callback) {
-    const query = 'SELECT * FROM store WHERE business_id = ?';
+    const query = `
+    SELECT store.store_id, store_name, store_file_name, store_description, store_address_street, store_address_suburb, store_address_postcode, store_geopoint, store_contact_phone, store_contact_email, store_contact_website, store.business_id, SUM(review.review_rating) / COUNT(review.review_id) AS rating, JSON_ARRAYAGG(JSON_OBJECT("name", category.category_name, "description", category.category_description)) AS categories 
+        FROM store
+        LEFT JOIN review ON store.store_id = review.store_id
+        LEFT JOIN store_category ON store.store_id = store_category.store_id
+        LEFT JOIN category ON store_category.category_id = category.category_id
+        WHERE store.business_id = ?
+        GROUP BY store.store_id;
+    `;
     
     db.execute(query, [business_id], (err, rows) => {
         if (err) {

@@ -66,7 +66,7 @@ router.post('/login', (req, res) => {
         if (result) {
             res.status(201).json({ message: 'User signed in successfully', result });
         } else {
-            res.status(500).json({ error: 'Incorrect User Authentication' });
+            res.status(401).json({ error: 'Incorrect User Authentication' });
         }
     });
 })
