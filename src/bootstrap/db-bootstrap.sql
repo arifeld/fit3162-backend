@@ -49,6 +49,14 @@ CREATE TABLE review_image (
     review_image_filename   VARCHAR(300)
 );
 
+CREATE TABLE review_reply (
+    reply_id                INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    review_id               INT NOT NULL,
+    reply_text              VARCHAR(300) NOT NULL,
+    reply_date              TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    owner_id                INT NOT NULL
+);
+
 CREATE TABLE store (
     store_id      INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     store_name    VARCHAR(50) NOT NULL,
@@ -125,3 +133,13 @@ ALTER TABLE user_favourite
 ALTER TABLE review_image
     ADD CONSTRAINT review_image_review_id_fk FOREIGN KEY ( review_id )
         REFERENCES review ( review_id );
+
+ALTER TABLE review_reply
+    ADD CONSTRAINT fk_review FOREIGN KEY (review_id)
+        REFERENCES review (review_id)
+        ON DELETE CASCASE;
+
+ALTER TABLE review_reply
+    ADD CONSTRAINT fk_owner FOREIGN KEY (owner_id)
+        REFERENCES owner (owner_id)
+        ON DELETE CASCASE;
