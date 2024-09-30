@@ -137,9 +137,9 @@ ALTER TABLE review_image
 ALTER TABLE review_reply
     ADD CONSTRAINT fk_review FOREIGN KEY (review_id)
         REFERENCES review (review_id)
-        ON DELETE CASCASE;
+        ON DELETE CASCADE;
 
 ALTER TABLE review_reply
     ADD CONSTRAINT fk_owner FOREIGN KEY (owner_id)
         REFERENCES owner (owner_id)
-        ON DELETE CASCASE;
+        ON DELETE CASCADE;
