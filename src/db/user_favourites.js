@@ -67,6 +67,27 @@ const checkFavourite = function(db, user_id, store_id, callback) {
     });
 }
 
+const getFavouriteStores = function(db, user_id, callback){
+    const getFavouriteScript = `SELECT store.* FROM user_favourite
+    JOIN store ON user_favourite.store_id = store.store_id
+    WHERE user_favourite.user_id = ?`
 
-module.exports = { addFavourite, removeFavourite, checkFavourite };
+    const callback_values = [user_id];
+
+    db.execute(getFavouriteScript, callback_values, (err, result) => {
+        if (err) {
+            console.log("Problem with getting user_favourite", err);
+            if (callback) {
+                callback(null);
+            }
+        } else {
+            if (callback) {
+                callback(result);
+            }
+        }
+    });
+}
+
+
+module.exports = { addFavourite, removeFavourite, checkFavourite, getFavouriteStores};
 
