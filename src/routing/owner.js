@@ -1,6 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const { setOwner, loginOwner } = require("../db/owner");
+const { setOwner, loginOwner, getBusinessByOwnerID } = require("../db/owner");
+
+router.get('/business', (req, res) => {
+    const owner_id = req.query.owner_id;  // Get owner_id from query parameters
+    console.log(owner_id);
+
+    if (!owner_id) {
+        return res.status(400).json({ error: 'owner_id is required' });
+    }
+
+    const db = req.app.get("db");
+
+    getBusinessByOwnerID(db, owner_id, function(rows) {
+        res.json(rows);
+    });
+});
 
 router.get("/", (req, res) => {
     const data = {

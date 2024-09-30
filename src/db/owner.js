@@ -72,4 +72,20 @@ const loginOwner = function(db, owner_email, owner_password, callback){
     })
 }
 
-module.exports = {setOwner, loginOwner};
+const getBusinessByOwnerID = function(db, owner_id, callback){
+    console.log(owner_id);
+    const getBusinessByOwnerIDScript = `SELECT * FROM business WHERE owner_id = ?`;
+
+    db.execute(getBusinessByOwnerIDScript, [owner_id], (err, result) => {
+        if (err) { 
+            logger.error(err); 
+            return; 
+        }
+        if (callback) { 
+            console.log(result);
+            callback(result); 
+        }
+    })
+};
+
+module.exports = {setOwner, loginOwner, getBusinessByOwnerID};
