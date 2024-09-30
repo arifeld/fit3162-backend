@@ -1,3 +1,4 @@
+const { get } = require("../routing/user");
 const logger = require("./../logging/logging");
 const bcrypt = require('bcrypt');
 
@@ -88,4 +89,19 @@ const getBusinessByOwnerID = function(db, owner_id, callback){
     })
 };
 
-module.exports = {setOwner, loginOwner, getBusinessByOwnerID};
+const getOwnerIdByEmail = function(db, owner_email, callback){
+    const getOwnerIdByEmailScript = `SELECT owner_id FROM owner WHERE owner_email = ?`;
+
+    db.execute(getOwnerIdByEmailScript, [owner_email], (err, result) => {
+        if (err) { 
+            logger.error(err); 
+            return; 
+        }
+        if (callback) { 
+            console.log(result);
+            callback(result); 
+        }
+    })
+};
+
+module.exports = {setOwner, loginOwner, getBusinessByOwnerID, getOwnerIdByEmail};

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { setOwner, loginOwner, getBusinessByOwnerID } = require("../db/owner");
+const { setOwner, loginOwner, getBusinessByOwnerID, getOwnerIdByEmail } = require("../db/owner");
 
 router.get('/business', (req, res) => {
     const owner_id = req.query.owner_id;  // Get owner_id from query parameters
@@ -70,5 +70,26 @@ router.post('/login', (req, res) => {
         }
     });
 })
+
+router.get('email/:owner_email', (req, res) => {
+    const { owner_email } = req.params; // Use req.query instead of req.body
+
+    // Logging the incoming values to ensure they're valid
+    console.log('Request Query:', req.params);
+
+    if (!owner_email) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    const db = req.app.get("db");
+
+    getOwnerIdByEmail(db, owner_email, function(result) {
+        if (result) {
+            res.status(201).json({ message: 'owner_id retrieved successfully', result });
+        } else {
+             res.status(500).json({ error: 'Failed to retrieve owner id' });
+        }
+    });
+});
 
 module.exports = router;
