@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { setUser, loginUser, getUserIdFromEmail, getUserNameFromId} = require("../db/user");
+const { setUser, loginUser, getUserIdFromEmail, getUserNameFromId, updateUserName} = require("../db/user");
 
 
 // constructing endpoints to get the user
@@ -113,5 +113,30 @@ router.post('/login', (req, res) => {
         }
     });
 })
+
+//update the user name 
+router.put('/:user_id', (req, res) => {
+    const { user_id } = req.params;
+    const { user_username } = req.body;
+
+    // Logging the incoming values to ensure they're valid
+    console.log('Request Body:', req.body);
+
+    // Check if the necessary fields are present
+    if (!user_id || !user_username) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    const db = req.app.get("db");
+
+    // Call setUser without the user_id, as it's auto-incremented
+    updateUserName(db, user_id, user_username, function(result) {
+        if (result) {
+            res.status(201).json({ message: 'User name updated successfully', result });
+        } else {
+            res.status(500).json({ error: 'Failed to update user name' });
+        }
+    });
+});
 
 module.exports = router;

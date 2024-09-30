@@ -132,4 +132,37 @@ const loginUser = function(db, user_email, user_password, callback){
     })
 }
 
-module.exports = { setUser, loginUser, getUserIdFromEmail, getUserNameFromId};
+//update the user name
+const updateUserName = function(db, user_id, user_username, callback) {
+    // Log the incoming values to ensure they're valid
+    console.log('User ID:', user_id);
+    console.log('User Username:', user_username);
+
+    // Check if any of the required values are undefined
+    if (!user_id || !user_username) {
+        console.error('Missing required fields:', { user_id, user_username });
+        return callback(null);  // Or handle the error appropriately
+    }
+
+    // SQL query to update the user's username
+    const updateUserNameScript = `UPDATE user SET user_username = ? WHERE user_id = ?`;
+
+    // Values for the query
+    const callback_values = [user_username, user_id];
+
+    // Executing the query
+    db.execute(updateUserNameScript, callback_values, (err, result) => {
+        if (err) {
+            console.log("Problem with updating user name", err);
+            if (callback) {
+                callback(null);
+            }
+        } else {
+            if (callback) {
+                callback(result);  // Return the result
+            }
+        }
+    });
+};
+
+module.exports = { setUser, loginUser, getUserIdFromEmail, getUserNameFromId, updateUserName};
