@@ -1,1 +1,1 @@
-mysql -u USERNAME -p reviewdb < ./db-bootstrap.sql
+mysql -u root -p reviewdb < C:\Users\Lewis\Monash\fit3162-backend\src\bootstrap\db-bootstrap.sql

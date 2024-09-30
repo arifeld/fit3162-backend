@@ -57,5 +57,4 @@ const deleteBusiness = function(db, business_id, callback) {
     });
 }
 
-
 module.exports = {setBusiness, getBusiness, deleteBusiness};

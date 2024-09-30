@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getStore, getAllStores, getStoresByStoreName } = require("../db/store");
+const { getStore, getAllStores, getStoresByStoreName, getStoresByBusinessId} = require("../db/store");
 
 router.get("/", (req, res) => {
     db = req.app.get("db");
@@ -61,6 +61,18 @@ router.get('/name/:name', (req, res) => {
 
     
 })
+
+router.get('/business/:business_id', (req, res) => {
+    const db = req.app.get("db");  // Properly declare db
+
+    getStoresByBusinessId(db, req.params.business_id, function(rows) {
+        if (rows) {
+            res.json(rows);  // Send the data back as a JSON response
+        } else {
+            res.status(404).json({ message: 'No stores found for this business' });  // Handle the case where no rows are returned
+        }
+    });
+});
 
 module.exports = router;
 
