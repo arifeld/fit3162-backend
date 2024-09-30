@@ -70,6 +70,16 @@ const getStoresByStoreName = function(db, store_name, callback) {
 }
 
 /// commenting here for test commit
+const getStoresByBusinessId = function(db, business_id, callback) {
+    const query = 'SELECT * FROM store WHERE business_id = ?';
+    
+    db.execute(query, [business_id], (err, rows) => {
+        if (err) {
+            console.error('Error querying the database:', err);
+            return callback(null);  // Handle error
+        }
+        callback(rows);  // Return the result rows
+    });
+};
 
-
-module.exports = {getStore, getAllStores, getStoresByStoreName}
+module.exports = {getStore, getAllStores, getStoresByStoreName, getStoresByBusinessId}

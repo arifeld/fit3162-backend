@@ -1,3 +1,4 @@
+const { get } = require("../routing/user");
 const logger = require("./../logging/logging");
 const bcrypt = require('bcrypt');
 
@@ -31,4 +32,76 @@ const setOwner = function(db, owner_id, owner_email, owner_password, callback) {
         });
     });
 };
-module.exports = {setOwner};
+
+const loginOwner = function(db, owner_email, owner_password, callback){
+    const getOwnerScript = `SELECT * FROM owner WHERE owner_email = ?`;
+
+    db.execute(getOwnerScript, [owner_email], (err, result) => {
+        if (err) {
+            console.log("Problem with querying user", err);
+            if (callback) {
+                callback(null);
+                return;
+            }
+        } 
+
+        if (result.length == 0){
+            if (callback){
+                callback(null);
+                return;
+            }
+        }
+
+        const owner = result[0];
+
+        bcrypt.compare(owner_password, owner.owner_password, (err, isMatch) => {
+            if (err) {
+                console.log("Error comparing passwords", err);
+                if (callback) callback(null);
+                return;
+            }
+
+            if (isMatch) {
+                // Passwords match
+                if (callback) callback({ owner_id: owner.owner_id, owner_email: owner.owner_email });
+            } else {
+                // Passwords do not match
+                if (callback) 
+                    callback(null);
+            }
+        });
+    })
+}
+
+const getBusinessByOwnerID = function(db, owner_id, callback){
+    console.log(owner_id);
+    const getBusinessByOwnerIDScript = `SELECT * FROM business WHERE owner_id = ?`;
+
+    db.execute(getBusinessByOwnerIDScript, [owner_id], (err, result) => {
+        if (err) { 
+            logger.error(err); 
+            return; 
+        }
+        if (callback) { 
+            console.log(result);
+            callback(result); 
+        }
+    })
+};
+
+const getOwnerIdByEmail = function(db, owner_email, callback){
+    const getOwnerIdByEmailScript = `SELECT owner_id FROM owner WHERE owner_email = ?`;
+
+    db.execute(getOwnerIdByEmailScript, [owner_email], (err, result) => {
+        if (err) { 
+            logger.error(err); 
+            return; 
+        }
+        if (callback) { 
+            console.log(result);
+            callback(result); 
+        }
+    })
+};
+
+module.exports = {setOwner, loginOwner, getBusinessByOwnerID, getOwnerIdByEmail};
