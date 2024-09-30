@@ -53,7 +53,7 @@ CREATE TABLE review_reply (
     reply_id                INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     review_id               INT NOT NULL,
     reply_text              VARCHAR(300) NOT NULL,
-    reply_date              TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    reply_date              DATETIME NOT NULL,
     owner_id                INT NOT NULL
 );
 
