@@ -2,6 +2,9 @@ const logger = require("./../logging/logging");
 const mysql = require('mysql2')
 
 const fs = require("fs");
+const { setOwner } = require("./owner");
+const { setBusiness } = require("./business");
+const { setUser } = require("./user");
 
 const connectDatabase = function() {
     logger.info("Attempting to connect to database.");
@@ -66,7 +69,18 @@ const bootstrapData = function(db) {
 
 
   // Insert test user
-  db.execute(`INSERT INTO user VALUES (?, ?, ?, ?)`, [1, "test@test.com", "test", "test"]);
+  setUser(db, "test@student.monash.edu", "test", "test", () => {});
+  
+  //db.execute(`INSERT INTO user VALUES (?, ?, ?, ?)`, [1, "test@test.com", "test", "test"]);
+  
+  setOwner(db, 1, "business@monash.edu", "test", (result) => {
+    setBusiness(db, "Gio's Store", "business@monash.edu", "0412345678", 1, (_) => {
+      db.execute(`UPDATE store SET business_id=? WHERE store_id=?`, [1, 1]);
+      db.execute(`UPDATE store SET business_id=? WHERE store_id=?`, [1, 4]);
+      db.execute(`UPDATE store SET business_id=? WHERE store_id=?`, [1, 8]);
+    })
+  })
+
   
   // Need to first generate a set of all categories so we don't throw errors due to async executes
   const categorySet = new Set();
