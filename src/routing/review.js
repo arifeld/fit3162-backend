@@ -2,22 +2,35 @@ const express = require('express');
 const router = express.Router();
 const {setReview, getReviewbyStore} = require('../db/review');
 const path = require("path");
+const fs = require("fs");
 
 const multer = require("multer");
-const upload = multer({ dest: path.join(__dirname, "../../public/review") })
+const upload = multer({ dest: path.join(__dirname, "../../public/review"), limits: { fieldSize: 25 * 1024 * 1024 } })
 
-const uploadFields = [{name: "files[]", maxCount: 3}];
+const uploadFields = [{name: "image", maxCount: 1}];
 
 // This is a multipart/form-data request to handle the image 
-router.post('/', upload.fields(uploadFields), (req, res) => {
+router.post('/', upload.none(), (req, res) => {
 
     console.log(req.body);
-    console.log(req.files)
-    const {review_rating, review_description, user_id, store_id, review_recommended} = req.body;
+
+    const {review_rating, review_description, user_id, store_id, review_recommended, files} = req.body;
 
     const db = req.app.get("db");
 
-    setReview(db, review_rating, review_description, user_id, store_id, review_recommended, function(results){
+    // Store all the files
+    const fileNames = [];
+
+    for (const i in files) {
+        const imageData = files[i];
+        const fileName = `${(new Date().getTime()/1000|0)}-${i}.jpeg`;
+        const imagePath = path.join(__dirname, "../../public/review/") + fileName;
+        fs.writeFileSync(imagePath, imageData, { encoding: "base64" });
+
+        fileNames.push(fileName);
+    }
+
+    setReview(db, review_rating, review_description, user_id, store_id, review_recommended, fileNames, function(results){
         console.log("done");
         res.json(results);
     });
