@@ -96,4 +96,4 @@ const addReply = function(db, review_id, business_id, review_description, callba
 
 // }
 
-module.exports = {setReview, getReviewbyStore};
+module.exports = {addReply, setReview, getReviewbyStore};
